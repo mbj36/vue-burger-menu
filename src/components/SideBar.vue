@@ -31,13 +31,18 @@
         width: {
           type: [String],
           required: false
+        },
+        disableEsc: {
+          type: Boolean,
+          required: false
         }
       },
       methods: {
         openMenu() {
           this.isSideBarOpen = true;
-          document.getElementById('sideNav').style.width =
-            this.width + 'px' || '250px';
+          document.getElementById('sideNav').style.width = this.width
+            ? this.width + 'px'
+            : '250px';
           document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
           if (this.right) {
             document.querySelector('.sidebar').style.left = 'auto';
@@ -48,6 +53,14 @@
           this.isSideBarOpen = false;
           document.getElementById('sideNav').style.width = '0px';
           document.body.style.backgroundColor = 'inherit';
+        },
+        closeMenuOnEsc(e) {
+          e = e || window.event;
+          if (e.key === 'Escape' || e.keyCode === 27) {
+            document.getElementById('sideNav').style.width = '0px';
+            document.body.style.backgroundColor = 'inherit';
+            this.isSideBarOpen = false;
+          }
         }
       },
       mounted() {
@@ -57,6 +70,12 @@
         if (this.right) {
           document.querySelector('.main').style.float = 'right';
         }
+        if (!this.disableEsc) {
+          document.addEventListener('keyup', this.closeMenuOnEsc);
+        }
+      },
+      destroyed: function() {
+        document.removeEventListener('keyup', this.closeMenuOnEsc);
       }
     };
 </script>
