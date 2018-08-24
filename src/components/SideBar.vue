@@ -27,12 +27,17 @@
         right: {
           type: Boolean,
           required: false
+        },
+        width: {
+          type: [String],
+          required: false
         }
       },
       methods: {
         openMenu() {
           this.isSideBarOpen = true;
-          document.getElementById('sideNav').style.width = '250px';
+          document.getElementById('sideNav').style.width =
+            this.width + 'px' || '250px';
           document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
           if (this.right) {
             document.querySelector('.sidebar').style.left = 'auto';
