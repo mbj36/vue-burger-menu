@@ -1,14 +1,12 @@
 <template>
     <div>
         <div id="sideNav" class="sidebar">
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-            <img class="closebtn" @click="closeButton" src="../assets/delete.svg" />
+            <slot></slot>
+            <img class="closebtn" @click="closeButton" height="30px" src="../assets/delete.svg" />
         </div>
         <div>
-            <span @click="openMenu">
-                <img src="../assets/ham.svg" />
+            <span class="main" @click="openMenu">
+                <img src="../assets/ham.svg" height="60px" />
             </span>
         </div>
     </div>
@@ -21,22 +19,36 @@
           isSideBarOpen: false
         };
       },
+      props: {
+        isOpen: {
+          type: Boolean,
+          required: false
+        }
+      },
       methods: {
         openMenu() {
           this.isSideBarOpen = true;
           document.getElementById('sideNav').style.width = '250px';
-          document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+          //document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
         },
         closeButton() {
           this.isSideBarOpen = false;
           document.getElementById('sideNav').style.width = '0px';
           document.body.style.backgroundColor = 'inherit';
         }
+      },
+      mounted() {
+        if (this.isOpen) {
+          this.openMenu();
+        }
       }
     };
 </script>
 
 <style>
+    .main {
+      padding: 16px;
+    }
     img:hover {
       opacity: 0.7;
     }
@@ -54,18 +66,19 @@
     }
     .sidebar .closebtn {
       position: absolute;
-      top: 0;
-      right: 25px;
+      top: 8px;
+      right: 12px;
       font-size: 36px;
       margin-left: 50px;
     }
     .sidebar a {
-      padding: 8px 8px 8px 32px;
+      padding: 8px 8px 8px 40px;
       text-decoration: none;
-      font-size: 25px;
-      color: #818181;
+      font-size: 20px;
+      color: white;
       display: block;
       transition: 0.3s;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 </style>
 

@@ -1,6 +1,10 @@
 <template>
     <div>
-        <sidebar></sidebar>
+        <sidebar>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </sidebar>
     </div>
 </template>
 
