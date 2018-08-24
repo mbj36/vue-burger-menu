@@ -23,13 +23,21 @@
         isOpen: {
           type: Boolean,
           required: false
+        },
+        right: {
+          type: Boolean,
+          required: false
         }
       },
       methods: {
         openMenu() {
           this.isSideBarOpen = true;
           document.getElementById('sideNav').style.width = '250px';
-          //document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+          document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
+          if (this.right) {
+            document.querySelector('.sidebar').style.left = 'auto';
+            document.querySelector('.sidebar').style.right = '0px';
+          }
         },
         closeButton() {
           this.isSideBarOpen = false;
@@ -41,6 +49,9 @@
         if (this.isOpen) {
           this.openMenu();
         }
+        if (this.right) {
+          document.querySelector('.main').style.float = 'right';
+        }
       }
     };
 </script>
@@ -48,6 +59,7 @@
 <style>
     .main {
       padding: 16px;
+      float: left;
     }
     img:hover {
       opacity: 0.7;
@@ -56,10 +68,10 @@
       height: 100%; /* 100% Full-height */
       width: 0; /* 0 width - change this with JavaScript */
       position: fixed; /* Stay in place */
-      z-index: 1; /* Stay on top */
+      z-index: 1000; /* Stay on top */
       top: 0;
       left: 0;
-      background-color: rgb(40, 23, 88); /* Black*/
+      background-color: rgb(26, 21, 43); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
