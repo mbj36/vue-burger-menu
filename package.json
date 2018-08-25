@@ -1,7 +1,7 @@
 {
     "name": "vue-burger-menu",
-    "version": "0.1.0",
-    "private": true,
+    "version": "0.0.1",
+    "private": false,
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
