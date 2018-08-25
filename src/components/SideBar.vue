@@ -82,7 +82,8 @@
         }
 
         if (this.right) {
-          document.querySelector('.main').style.float = 'right';
+          document.querySelector('.bm-burger-button').style.left = 'auto';
+          document.querySelector('.bm-burger-button').style.right = '36px';
         }
 
         if (!this.disableEsc) {
@@ -117,6 +118,7 @@
       position: absolute;
       top: 12px;
       right: 2px;
+      cursor: pointer;
     }
     .bm-cross {
       background: #bdc3c7;
