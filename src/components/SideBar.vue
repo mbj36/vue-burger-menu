@@ -1,7 +1,12 @@
 <template>
     <div>
+
         <div id="sideNav" class="sidebar">
             <slot></slot>
+            <span class="bm-cross-button cross-style" @click="closeButton">
+                <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
+                </span>
+            </span>
         </div>
 
         <div class="bm-burger-button" @click="openMenu">
@@ -108,6 +113,18 @@
       left: 0;
       right: 0;
     }
+    .cross-style {
+      position: absolute;
+      top: 12px;
+      right: 2px;
+    }
+    .bm-cross {
+      background: #bdc3c7;
+    }
+    .bm-cross-button {
+      height: 24px;
+      width: 24px;
+    }
     .sidebar {
       height: 100%; /* 100% Full-height */
       width: 0; /* 0 width - change this with JavaScript */
@@ -119,14 +136,6 @@
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
-    }
-    .sidebar .closebtn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 36px;
-      margin-left: 50px;
-      cursor: pointer;
     }
     .sidebar a {
       padding: 8px 8px 8px 40px;
