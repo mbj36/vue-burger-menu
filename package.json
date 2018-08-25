@@ -1,12 +1,12 @@
 {
-    "name": "vue-sidebar",
+    "name": "vue-burger-menu",
     "version": "0.1.0",
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "build-bundle": "vue-cli-service build --target lib --name vue-sidebar ./src/components/index.js"
+        "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
     },
     "dependencies": {
         "vue": "^2.5.17"

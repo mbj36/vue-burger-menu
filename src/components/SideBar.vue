@@ -55,11 +55,13 @@
             document.querySelector('.sidebar').style.right = '0px';
           }
         },
+
         closeButton() {
           this.isSideBarOpen = false;
           document.getElementById('sideNav').style.width = '0px';
           document.body.style.backgroundColor = 'inherit';
         },
+
         closeMenuOnEsc(e) {
           e = e || window.event;
           if (e.key === 'Escape' || e.keyCode === 27) {
@@ -69,17 +71,21 @@
           }
         }
       },
+
       mounted() {
         if (this.isOpen) {
           this.openMenu();
         }
+
         if (this.right) {
           document.querySelector('.main').style.float = 'right';
         }
+
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
       },
+
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
       }
