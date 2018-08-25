@@ -1,6 +1,6 @@
 {
     "name": "vue-burger-menu",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": false,
     "scripts": {
         "serve": "vue-cli-service serve",
@@ -16,12 +16,24 @@
         "email": "mohitbajo36@gmail.com",
         "url": "https://mbj36.xyz"
     },
+    "keywords": [
+        "vuejs",
+        "menu",
+        "hamburger",
+        "sidebar"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mbj36/vue-burger-menu.git"
+    },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^3.0.0",
         "@vue/cli-plugin-eslint": "^3.0.0",
         "@vue/cli-service": "^3.0.0",
         "vue-template-compiler": "^2.5.17"
     },
+    "main": "./dist/vue-burger-menu.common.js",
+    "license": "MIT",
     "eslintConfig": {
         "root": true,
         "env": {
@@ -45,5 +57,8 @@
         "> 1%",
         "last 2 versions",
         "not ie <= 8"
+    ],
+    "files": [
+        "dist/vue-burger-menu.common.js"
     ]
 }
