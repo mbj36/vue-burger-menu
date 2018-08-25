@@ -49,7 +49,7 @@
           this.isSideBarOpen = true;
           document.getElementById('sideNav').style.width = this.width
             ? this.width + 'px'
-            : '250px';
+            : '300px';
           if (!this.noOverlay) {
             document.body.className += 'bm-overlay';
           }
