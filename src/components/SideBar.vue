@@ -2,13 +2,12 @@
     <div>
         <div id="sideNav" class="sidebar">
             <slot></slot>
-            <img class="closebtn" @click="closeButton" height="30px" src="../assets/delete.svg" />
         </div>
-        <div>
-            <span class="main" @click="openMenu">
-                <img src="../assets/ham.svg" height="60px" />
-            </span>
+
+        <div class="bm-burger-button" @click="openMenu">
+            <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
         </div>
+
     </div>
 </template>
 
@@ -93,12 +92,21 @@
 </script>
 
 <style>
-    .main {
-      padding: 16px;
-      float: left;
+    .bm-burger-button {
+      position: fixed;
+      width: 36px;
+      height: 30px;
+      left: 36px;
+      top: 36px;
     }
-    img:hover {
-      opacity: 0.7;
+    .bm-burger-bars {
+      background-color: #373a47;
+    }
+    .line-style {
+      position: absolute;
+      height: 20%;
+      left: 0;
+      right: 0;
     }
     .sidebar {
       height: 100%; /* 100% Full-height */
