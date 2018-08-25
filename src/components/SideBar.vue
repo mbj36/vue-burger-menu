@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div id="sideNav" class="sidebar">
+        <div id="sideNav" class="bm-menu">
             <slot></slot>
             <span class="bm-cross-button cross-style" @click="closeButton">
                 <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
@@ -52,18 +52,21 @@
             ? this.width + 'px'
             : '250px';
           if (!this.noOverlay) {
-            document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
+            document.body.className += 'bm-overlay';
           }
           if (this.right) {
-            document.querySelector('.sidebar').style.left = 'auto';
-            document.querySelector('.sidebar').style.right = '0px';
+            document.querySelector('.bm-menu').style.left = 'auto';
+            document.querySelector('.bm-menu').style.right = '0px';
           }
         },
 
         closeButton() {
+          document.body.className = document.body.className.replace(
+            'bm-overlay',
+            ''
+          );
           this.isSideBarOpen = false;
           document.getElementById('sideNav').style.width = '0px';
-          document.body.style.backgroundColor = 'inherit';
         },
 
         closeMenuOnEsc(e) {
@@ -127,7 +130,7 @@
       height: 24px;
       width: 24px;
     }
-    .sidebar {
+    .bm-menu {
       height: 100%; /* 100% Full-height */
       width: 0; /* 0 width - change this with JavaScript */
       position: fixed; /* Stay in place */
@@ -139,7 +142,7 @@
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
     }
-    .sidebar a {
+    .bm-menu a {
       padding: 8px 8px 8px 40px;
       text-decoration: none;
       font-size: 20px;
@@ -147,6 +150,9 @@
       display: block;
       transition: 0.3s;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .bm-overlay {
+      background: rgba(0, 0, 0, 0.3);
     }
 </style>
 
