@@ -2,7 +2,7 @@
     <div>
         <div id="sideNav" class="bm-menu">
             <slot></slot>
-            <span class="bm-cross-button cross-style" @click="closeButton">
+            <span class="bm-cross-button cross-style" @click="closeMenu">
                 <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
                 </span>
             </span>
@@ -59,13 +59,13 @@
           }
         },
 
-        closeButton() {
+        closeMenu() {
+          this.isSideBarOpen = false;
+          document.getElementById('sideNav').style.width = '0px';
           document.body.className = document.body.className.replace(
             'bm-overlay',
             ''
           );
-          this.isSideBarOpen = false;
-          document.getElementById('sideNav').style.width = '0px';
         },
 
         closeMenuOnEsc(e) {
@@ -74,6 +74,13 @@
             document.getElementById('sideNav').style.width = '0px';
             document.body.style.backgroundColor = 'inherit';
             this.isSideBarOpen = false;
+          }
+        },
+        documentClick(e) {
+          let element = document.querySelector('.bm-burger-button');
+          let target = e.target;
+          if (element !== target && !element.contains(target)) {
+            this.closeMenu();
           }
         }
       },
@@ -92,9 +99,12 @@
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
       },
-
+      created: function() {
+        document.addEventListener('click', this.documentClick);
+      },
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
+        document.removeEventListener('click', this.documentClick);
       }
     };
 </script>
@@ -136,19 +146,24 @@
       z-index: 1000; /* Stay on top */
       top: 0;
       left: 0;
-      background-color: rgb(26, 21, 43); /* Black*/
+      background-color: rgb(63, 63, 65); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
     }
     .bm-menu a {
-      padding: 8px 8px 8px 40px;
+      padding: 12px 8px 8px 40px;
       text-decoration: none;
+      margin-left: 15px;
+      letter-spacing: 1px;
       font-size: 20px;
       color: white;
       display: block;
       transition: 0.3s;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: 'Raleway', Arial, sans-serif;
+    }
+    .bm-menu a:hover {
+      color: orangered;
     }
     .bm-overlay {
       background: rgba(0, 0, 0, 0.3);

@@ -4,6 +4,7 @@
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
+            <a href="#">Refer </a>
         </Menu>
     </div>
 </template>
