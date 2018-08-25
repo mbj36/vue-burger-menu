@@ -159,7 +159,7 @@
       font-size: 20px;
       color: white;
       display: block;
-      transition: 0.3s;
+      transition: 0.4s;
       font-family: 'Raleway', Arial, sans-serif;
     }
     .bm-menu a:hover {
