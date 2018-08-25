@@ -1,18 +1,18 @@
 <template>
     <div>
-        <sidebar>
+        <Menu>
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
-        </sidebar>
+        </Menu>
     </div>
 </template>
 
 <script>
-    import Sidebar from './components/SideBar';
+    import Menu from './components/Menu';
     export default {
       components: {
-        Sidebar
+        Menu: Menu
       }
     };
 </script>

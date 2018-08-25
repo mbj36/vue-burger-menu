@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div id="sideNav" class="bm-menu">
             <slot></slot>
             <span class="bm-cross-button cross-style" @click="closeButton">

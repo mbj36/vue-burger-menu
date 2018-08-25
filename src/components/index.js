@@ -1,3 +1,3 @@
-import Sidebar from './SideBar'
+import Menu from './Menu'
 
-export default Sidebar
+export default Menu
