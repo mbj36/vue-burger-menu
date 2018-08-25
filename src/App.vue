@@ -1,6 +1,6 @@
 <template>
     <div>
-        <sidebar disableEsc>
+        <sidebar>
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>

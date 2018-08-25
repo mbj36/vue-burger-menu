@@ -35,6 +35,10 @@
         disableEsc: {
           type: Boolean,
           required: false
+        },
+        noOverlay: {
+          type: Boolean,
+          required: false
         }
       },
       methods: {
@@ -43,7 +47,9 @@
           document.getElementById('sideNav').style.width = this.width
             ? this.width + 'px'
             : '250px';
-          document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
+          if (!this.noOverlay) {
+            document.body.style.backgroundColor = 'rgba(0,0,0,0.1)';
+          }
           if (this.right) {
             document.querySelector('.sidebar').style.left = 'auto';
             document.querySelector('.sidebar').style.right = '0px';
@@ -98,7 +104,7 @@
       background-color: rgb(26, 21, 43); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+      transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
     }
     .sidebar .closebtn {
       position: absolute;
@@ -106,6 +112,7 @@
       right: 12px;
       font-size: 36px;
       margin-left: 50px;
+      cursor: pointer;
     }
     .sidebar a {
       padding: 8px 8px 8px 40px;
