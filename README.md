@@ -5,7 +5,7 @@ An off-canvas sidebar Vue component with a collection of effects and styles usin
 
 ## Demo & examples
 
-Live demo - [WIP]
+Live demo - https://vue-burger-menu.netlify.com/ (WIP)
 
 To build the examples locally, run:
 
