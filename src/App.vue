@@ -1,19 +1,19 @@
 <template>
     <div>
-        <Slide right noOverlay isOpen>
+        <Stack>
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
             <a href="#">Refer </a>
-        </Slide>
+        </Stack>
     </div>
 </template>
 
 <script>
-    import Slide from './components/Menu/slide';
+    import Stack from './components/Menu/stack';
     export default {
       components: {
-        Slide: Slide
+        Stack: Stack
       }
     };
 </script>

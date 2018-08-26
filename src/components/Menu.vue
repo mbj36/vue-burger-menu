@@ -43,6 +43,10 @@
         noOverlay: {
           type: Boolean,
           required: false
+        },
+        onStateChange: {
+          type: Function,
+          required: false
         }
       },
       methods: {

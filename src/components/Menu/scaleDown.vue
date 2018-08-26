@@ -19,7 +19,8 @@
             right: this.$attrs.right,
             width: this.$attrs.width,
             disableEsc: this.$attrs.disableEsc,
-            noOverlay: this.$attrs.noOverlay
+            noOverlay: this.$attrs.noOverlay,
+            onStateChange: this.$attrs.onStateChange
           }
         };
       }
