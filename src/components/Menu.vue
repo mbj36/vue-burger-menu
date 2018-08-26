@@ -154,17 +154,18 @@
       background-color: rgb(63, 63, 65); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
+      transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     }
     .bm-menu a {
-      padding: 12px 8px 8px 40px;
+      padding: 15px 8px 8px 8px;
+      text-align: justify;
+      margin-left: 15%;
       text-decoration: none;
-      margin-left: 15px;
-      letter-spacing: 1px;
-      font-size: 20px;
+      font-size: 1.15em;
       color: white;
+      font-weight: 700;
       display: block;
-      transition: 0.4s;
+      transition: 0.5s;
       font-family: 'Raleway', Arial, sans-serif;
     }
     .bm-menu a:hover {
