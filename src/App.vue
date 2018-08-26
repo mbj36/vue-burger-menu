@@ -1,19 +1,19 @@
 <template>
     <div>
-        <Menu>
+        <Slide>
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
             <a href="#">Refer </a>
-        </Menu>
+        </Slide>
     </div>
 </template>
 
 <script>
-    import Menu from './components/Menu';
+    import Slide from './components/Menu/slide';
     export default {
       components: {
-        Menu: Menu
+        Slide: Slide
       }
     };
 </script>

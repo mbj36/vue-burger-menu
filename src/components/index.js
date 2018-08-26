@@ -1,5 +1,7 @@
 import Menu from './Menu'
 
+// Different CSS animations
+
 import Slide from './Menu/slide'
 import Bubble from './Menu/bubble'
 import Reveal from './Menu/reveal'
