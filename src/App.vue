@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Slide>
+        <Slide right noOverlay isOpen>
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>

@@ -1,5 +1,3 @@
-import Menu from './Menu'
-
 // Different CSS animations
 
 import Slide from './Menu/slide'
@@ -14,7 +12,6 @@ import ScaleRotate from './Menu/scaleRotate'
 import ScaleDown from './Menu/scaleDown'
 
 export default {
-    Menu,
     Slide,
     Bubble,
     Reveal,
