@@ -15,35 +15,13 @@
       data() {
         return {
           propsToPass: {
-            isOpen: this.isOpen,
-            right: this.right,
-            width: this.width,
-            disableEsc: this.disableEsc,
-            noOverlay: this.noOverlay
+            isOpen: this.$attrs.isOpen,
+            right: this.$attrs.right,
+            width: this.$attrs.width,
+            disableEsc: this.$attrs.disableEsc,
+            noOverlay: this.$attrs.noOverlay
           }
         };
-      },
-      props: {
-        isOpen: {
-          type: Boolean,
-          required: false
-        },
-        right: {
-          type: Boolean,
-          required: false
-        },
-        width: {
-          type: [String],
-          required: false
-        },
-        disableEsc: {
-          type: Boolean,
-          required: false
-        },
-        noOverlay: {
-          type: Boolean,
-          required: false
-        }
       }
     };
 </script>
