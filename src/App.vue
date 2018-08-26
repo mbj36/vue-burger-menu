@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <div>
         <Stack>
             <a href="#">
                 <i class="fa fa-fw fa-star-o"></i>
@@ -26,7 +26,19 @@
                 <span>Reading List</span>
             </a>
         </Stack>
-    </main>
+        <main id="page-wrap">
+            <h1>
+                <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a>
+            </h1>
+            <a>Left</a>
+            <a>Right</a>
+            <h2 class="description">An off-canvas sidebar vue component with a collection of effects and styles using CSS transitions and SVG path animations.</h2>
+            Inspired by
+            <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas Menu Effects</a> and
+            <a href="https://github.com/codrops/SidebarTransitions">Sidebar Transitions</a> by Codrops
+
+        </main>
+    </div>
 </template>
 
 <script>
