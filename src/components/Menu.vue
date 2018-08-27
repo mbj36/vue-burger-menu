@@ -2,7 +2,9 @@
     <div>
 
         <div id="sideNav" class="bm-menu">
-            <slot></slot>
+            <nav class="bm-item-list">
+                <slot></slot>
+            </nav>
             <span class="bm-cross-button cross-style" @click="closeMenu">
                 <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
                 </span>
@@ -66,11 +68,11 @@
 
         closeMenu() {
           this.isSideBarOpen = false;
-          document.getElementById('sideNav').style.width = '0px';
           document.body.className = document.body.className.replace(
             'bm-overlay',
             ''
           );
+          document.getElementById('sideNav').style.width = '0px';
         },
 
         closeMenuOnEsc(e) {
@@ -154,25 +156,25 @@
       background-color: rgb(63, 63, 65); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+      transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
     }
-    .bm-menu a {
-      padding: 15px 8px 8px 8px;
-      text-align: justify;
-      margin-left: 15%;
-      text-decoration: none;
-      font-size: 1.15em;
-      color: white;
-      font-weight: 700;
-      display: block;
-      transition: 0.5s;
-      font-family: 'Raleway', Arial, sans-serif;
-    }
-    .bm-menu a:hover {
-      color: orangered;
-    }
+
     .bm-overlay {
       background: rgba(0, 0, 0, 0.3);
+    }
+    .bm-item-list {
+      color: #b8b7ad;
+      margin-left: 10%;
+      font-size: 20px;
+    }
+    .bm-item-list > * {
+      display: block;
+      text-decoration: none;
+      padding: 0.7em;
+    }
+    .bm-item-list > * > span {
+      margin-left: 10px;
+      font-weight: 700;
     }
 </style>
 

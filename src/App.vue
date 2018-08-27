@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Stack>
+        <Slide>
             <a href="#">
                 <i class="fa fa-fw fa-star-o"></i>
                 <span>Favourites</span>
@@ -25,14 +25,17 @@
                 <i class="fa fa-fw fa-newspaper-o"></i>
                 <span>Reading List</span>
             </a>
-        </Stack>
+        </Slide>
         <main id="page-wrap">
+
             <h1>
                 <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a>
             </h1>
-            <a>Left</a>
-            <a>Right</a>
+            <a :class="{ sideButton: true, left: true }">Left</a>
+            <a :class="{sideButton: true, right: true }">Right</a>
+
             <h2 class="description">An off-canvas sidebar vue component with a collection of effects and styles using CSS transitions and SVG path animations.</h2>
+
             Inspired by
             <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas Menu Effects</a> and
             <a href="https://github.com/codrops/SidebarTransitions">Sidebar Transitions</a> by Codrops
@@ -42,18 +45,16 @@
 </template>
 
 <script>
-    import Stack from './components/Menu/stack';
+    import Slide from './components/Menu/slide';
     export default {
       components: {
-        Stack: Stack
+        Slide: Slide
       }
     };
 </script>
 
 
- <style lang="less">
-    //@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,800);
-
+//  <style lang="less">
     *,
     *:after,
     *:before {
@@ -134,7 +135,7 @@
       }
     }
 
-    .side-button {
+    .sideButton {
       display: inline-block;
       width: 5em;
       height: 2.5em;
@@ -212,15 +213,6 @@
         &:focus {
           color: #c94e50;
         }
-      }
-    }
-
-    .bm-item-list a {
-      padding: 0.8em;
-
-      span {
-        margin-left: 10px;
-        font-weight: 700;
       }
     }
 
