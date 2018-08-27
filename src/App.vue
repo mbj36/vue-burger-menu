@@ -36,6 +36,13 @@
 
             <h2 class="description">An off-canvas sidebar vue component with a collection of effects and styles using CSS transitions and SVG path animations.</h2>
 
+            <nav class="demo-buttons">
+                <span v-for="(menu, index) in menus" :key="index">
+                    <a :class="{currentDemo:false}">
+                        {{menu.buttonText}}
+                    </a>
+                </span>
+            </nav>
             Inspired by
             <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas Menu Effects</a> and
             <a href="https://github.com/codrops/SidebarTransitions">Sidebar Transitions</a> by Codrops
@@ -47,14 +54,29 @@
 <script>
     import Slide from './components/Menu/slide';
     export default {
+      data() {
+        return {
+          menus: {
+            slide: { buttonText: 'Slide', items: 1 },
+            stack: { buttonText: 'Stack', items: 1 },
+            elastic: { buttonText: 'Elastic', items: 1 },
+            bubble: { buttonText: 'Bubble', items: 1 },
+            push: { buttonText: 'Push', items: 1 },
+            pushRotate: { buttonText: 'Push Rotate', items: 2 },
+            scaleDown: { buttonText: 'Scale Down', items: 2 },
+            scaleRotate: { buttonText: 'Scale Rotate', items: 2 },
+            fallDown: { buttonText: 'Fall Down', items: 2 },
+            reveal: { buttonText: 'Reveal', items: 1 }
+          }
+        };
+      },
       components: {
         Slide: Slide
       }
     };
 </script>
 
-
-//  <style lang="less">
+ <style lang="less">
     *,
     *:after,
     *:before {
@@ -128,7 +150,7 @@
         border-bottom-left-radius: 20px 50px;
         cursor: pointer;
 
-        &.current-demo {
+        &.currentDemo {
           background: #c94e50;
           color: #fffce1;
         }
