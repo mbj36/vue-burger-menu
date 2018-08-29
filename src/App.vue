@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Slide>
+        <Menu>
             <a href="#">
                 <i class="fa fa-fw fa-star-o"></i>
                 <span>Favourites</span>
@@ -25,14 +25,14 @@
                 <i class="fa fa-fw fa-newspaper-o"></i>
                 <span>Reading List</span>
             </a>
-        </Slide>
+        </Menu>
         <main id="page-wrap">
 
             <h1>
                 <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a>
             </h1>
-            <a :class="{ sideButton: true, left: true }">Left</a>
-            <a :class="{sideButton: true, right: true }">Right</a>
+            <a :class="{ sideButton: true, left: true, active: this.side === 'left' }" @click="changeSide('left')">Left</a>
+            <a :class="{sideButton: true, right: true, active: this.side === 'right' }" @click="changeSide('right')">Right</a>
 
             <h2 class="description">An off-canvas sidebar vue component with a collection of effects and styles using CSS transitions and SVG path animations.</h2>
 
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-    import Slide from './components/Menu/slide';
+    import Menu from './components/Menu';
     export default {
       data() {
         return {
@@ -67,11 +67,23 @@
             scaleRotate: { buttonText: 'Scale Rotate', items: 2 },
             fallDown: { buttonText: 'Fall Down', items: 2 },
             reveal: { buttonText: 'Reveal', items: 1 }
-          }
+          },
+          side: 'left',
+          currentMenu: 'slide'
         };
       },
       components: {
-        Slide: Slide
+        Menu: Menu
+      },
+      methods: {
+        changeSide(side) {
+          this.side = side;
+        }
+      },
+      computed: {
+        checkSide: function() {
+          return this.side;
+        }
       }
     };
 </script>

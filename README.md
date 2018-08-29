@@ -62,7 +62,7 @@ The menu opens from left by default. To have it open from the right, use the `ri
 
 ### Width 
 
-You can specify the width of the menu with the `width` prop. The default is `250px`
+You can specify the width of the menu with the `width` prop. The default is `300px`
 
 ```javascript
 <Menu width="400">
