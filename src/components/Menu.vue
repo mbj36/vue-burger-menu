@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div id="sideNav" class="bm-menu">
             <nav class="bm-item-list">
                 <slot></slot>
@@ -14,7 +13,6 @@
         <div class="bm-burger-button" @click="openMenu">
             <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
         </div>
-
     </div>
 </template>
 
@@ -168,7 +166,7 @@
       font-size: 20px;
     }
     .bm-item-list > * {
-      display: block;
+      display: inline-flex;
       text-decoration: none;
       padding: 0.7em;
     }

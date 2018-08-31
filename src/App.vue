@@ -1,33 +1,12 @@
 <template>
-    <div>
+    <div id="app">
         <Menu>
-            <a href="#">
+            <a href="">
                 <i class="fa fa-fw fa-star-o"></i>
-                <span>Favourites</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bell-o"></i>
-                <span>Alerts</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-envelope-o"></i>
                 <span>Messages</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-comment-o"></i>
-                <span>Comments</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bar-chart-o"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-newspaper-o"></i>
-                <span>Reading List</span>
             </a>
         </Menu>
         <main id="page-wrap">
-
             <h1>
                 <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a>
             </h1>
@@ -46,27 +25,27 @@
             Inspired by
             <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas Menu Effects</a> and
             <a href="https://github.com/codrops/SidebarTransitions">Sidebar Transitions</a> by Codrops
-
         </main>
     </div>
 </template>
 
 <script>
     import Menu from './components/Menu';
+
     export default {
       data() {
         return {
           menus: {
-            slide: { buttonText: 'Slide', items: 1 },
-            stack: { buttonText: 'Stack', items: 1 },
-            elastic: { buttonText: 'Elastic', items: 1 },
-            bubble: { buttonText: 'Bubble', items: 1 },
-            push: { buttonText: 'Push', items: 1 },
-            pushRotate: { buttonText: 'Push Rotate', items: 2 },
-            scaleDown: { buttonText: 'Scale Down', items: 2 },
-            scaleRotate: { buttonText: 'Scale Rotate', items: 2 },
-            fallDown: { buttonText: 'Fall Down', items: 2 },
-            reveal: { buttonText: 'Reveal', items: 1 }
+            slide: { buttonText: 'Slide' },
+            stack: { buttonText: 'Stack' },
+            elastic: { buttonText: 'Elastic' },
+            bubble: { buttonText: 'Bubble' },
+            push: { buttonText: 'Push' },
+            pushRotate: { buttonText: 'Push Rotate' },
+            scaleDown: { buttonText: 'Scale Down' },
+            scaleRotate: { buttonText: 'Scale Rotate' },
+            fallDown: { buttonText: 'Fall Down' },
+            reveal: { buttonText: 'Reveal' }
           },
           side: 'left',
           currentMenu: 'slide'
@@ -105,6 +84,7 @@
       color: #fffce1;
       background: #b4bad2;
       font-family: 'Raleway', Arial, sans-serif;
+      margin: 0px;
     }
 
     #app {
