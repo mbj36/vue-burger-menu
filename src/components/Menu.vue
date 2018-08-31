@@ -19,7 +19,7 @@
 
 <script>
     export default {
-      name: 'menu',
+      name: 'menubar',
       data() {
         return {
           isSideBarOpen: false

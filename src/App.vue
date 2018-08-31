@@ -132,9 +132,9 @@
     body {
       height: 100%;
       color: #fffce1;
-      background: #b4bad2;
       font-family: 'Raleway', Arial, sans-serif;
       margin: 0px;
+      background: #b4bad2;
     }
 
     #app {
@@ -155,7 +155,6 @@
       height: 100%;
       padding: 3em 2em;
       text-align: center;
-      background: #b4bad2;
       overflow: auto;
     }
 
