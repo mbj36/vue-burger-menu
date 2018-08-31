@@ -190,13 +190,14 @@
       font-size: 20px;
     }
     .bm-item-list > * {
-      display: inline-flex;
+      display: flex;
       text-decoration: none;
       padding: 0.7em;
     }
     .bm-item-list > * > span {
       margin-left: 10px;
       font-weight: 700;
+      color: white;
     }
 </style>
 
