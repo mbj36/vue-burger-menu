@@ -67,9 +67,16 @@
 
             <nav class="demo-buttons">
                 <span v-for="(menu, index) in menus" :key="index">
-                    <a :class="{currentDemo:false}">
-                        {{menu.buttonText}}
-                    </a>
+                    <span v-if="menu.buttonText === 'Slide'">
+                        <a :class="{currentDemo:true}">
+                            {{menu.buttonText}}
+                        </a>
+                    </span>
+                    <span v-else>
+                        <a :class="{currentDemo:false}">
+                            {{menu.buttonText}}
+                        </a>
+                    </span>
                 </span>
             </nav>
             Inspired by
@@ -87,15 +94,15 @@
         return {
           menus: {
             slide: { buttonText: 'Slide' },
-            stack: { buttonText: 'Stack' },
-            elastic: { buttonText: 'Elastic' },
-            bubble: { buttonText: 'Bubble' },
-            push: { buttonText: 'Push' },
-            pushRotate: { buttonText: 'Push Rotate' },
-            scaleDown: { buttonText: 'Scale Down' },
-            scaleRotate: { buttonText: 'Scale Rotate' },
-            fallDown: { buttonText: 'Fall Down' },
-            reveal: { buttonText: 'Reveal' }
+            stack: { buttonText: 'Stack - (WIP)' },
+            elastic: { buttonText: 'Elastic - (WIP)' },
+            bubble: { buttonText: 'Bubble - (WIP)' },
+            push: { buttonText: 'Push - (WIP)' },
+            pushRotate: { buttonText: 'Push Rotate - (WIP)' },
+            scaleDown: { buttonText: 'Scale Down - (WIP)' },
+            scaleRotate: { buttonText: 'Scale Rotate - (WIP)' },
+            fallDown: { buttonText: 'Fall Down - (WIP)' },
+            reveal: { buttonText: 'Reveal - (WIP)' }
           },
           side: 'left',
           currentMenu: 'slide'
