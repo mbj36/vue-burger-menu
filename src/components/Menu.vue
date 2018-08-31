@@ -127,6 +127,7 @@
                 document
                   .querySelector('.bm-burger-button')
                   .removeAttribute('style');
+                document.getElementById('sideNav').style.right = 'auto';
               }
             }
           }
