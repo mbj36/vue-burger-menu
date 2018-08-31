@@ -19,6 +19,7 @@
 
 <script>
     export default {
+      name: 'menu',
       data() {
         return {
           isSideBarOpen: false

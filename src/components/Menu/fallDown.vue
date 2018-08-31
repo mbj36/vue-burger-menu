@@ -9,6 +9,7 @@
 <script>
     import Menu from '../Menu';
     export default {
+      name: 'elastic',
       components: {
         Menu: Menu
       },

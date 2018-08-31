@@ -10,8 +10,10 @@ import PushRotate from './Menu/pushRotate'
 import Stack from './Menu/stack'
 import ScaleRotate from './Menu/scaleRotate'
 import ScaleDown from './Menu/scaleDown'
+import Menu from './Menu'
 
 export default {
+    Menu,
     Slide,
     Bubble,
     Reveal,
