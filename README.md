@@ -75,7 +75,7 @@ ATTENTION - the below animations are in WIP
 The menu opens from left by default. To have it open from the right, use the `right` prop. It's just a boolean so you don't need to specify a value. 
 
 ```javascript
-<Menu right/>
+<Slide right/>
 ```
 
 ### Width 
@@ -83,7 +83,7 @@ The menu opens from left by default. To have it open from the right, use the `ri
 You can specify the width of the menu with the `width` prop. The default is `300px`
 
 ```javascript
-<Menu width="400">
+<Slide width="400">
 ```
 
 ### Open state
@@ -93,7 +93,7 @@ You can control whether the sidebar is open or closed with the `isOpen` prop. Th
 ```javascript
 // To render the menu open
 
-<Menu isOpen>
+<Slide isOpen>
 ```
 
 ### Close on Escape
@@ -101,7 +101,7 @@ You can control whether the sidebar is open or closed with the `isOpen` prop. Th
 By default, the menu will close when the Escape key is pressed. To disable this behavior, you can pass the `disableCloseOnEsc` prop. This is useful in cases where you want the menu to be open all the time, for example if you're implementing a responsive menu that behaves differently depending on the browser width.
 
 ``` javascript
-<Menu disableEsc />
+<Slide disableEsc />
 ```
 
 ### Overlay
@@ -109,7 +109,7 @@ By default, the menu will close when the Escape key is pressed. To disable this 
 You can turn off the default overlay with `noOverlay`.
 
 ``` javascript
-<Menu noOverlay />
+<Slide noOverlay />
 ```
 
 ### Styling
