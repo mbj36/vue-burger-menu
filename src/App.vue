@@ -1,11 +1,53 @@
 <template>
     <div id="app">
-        <Menu>
-            <a href="">
-                <i class="fa fa-fw fa-star-o"></i>
-                <span>Messages</span>
-            </a>
-        </Menu>
+        <span v-if="checkSide === 'right'">
+            <Menu right>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+            </Menu>
+        </span>
+        <span v-else>
+            <Menu>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Messages</span>
+                </a>
+            </Menu>
+        </span>
         <main id="page-wrap">
             <h1>
                 <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a>
