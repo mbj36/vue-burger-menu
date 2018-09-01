@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass">
+        <Menu v-bind="propsToPass" @openMenu="push" @closeMenu="pull">
             <slot></slot>
         </Menu>
     </div>
@@ -24,6 +24,36 @@
             onStateChange: this.$attrs.onStateChange
           }
         };
+      },
+      methods: {
+        push() {
+          let width = this.propsToPass.width
+            ? this.propsToPass.width + 'px'
+            : '300px';
+
+          document.body.style.overflowX = 'hidden';
+
+          if (this.propsToPass.right != undefined) {
+            document.querySelector(
+              '#page-wrap'
+            ).style.transform = `translate3d(-${width}, 0px, 0px )`;
+          } else {
+            document.querySelector(
+              '#page-wrap'
+            ).style.transform = `translate3d(${width}, 0px, 0px )`;
+          }
+
+          document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+        },
+        pull() {
+          document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+          document.querySelector('#page-wrap').style.transform = '';
+          document.body.removeAttribute('style');
+        }
       }
     };
 </script>
+
+

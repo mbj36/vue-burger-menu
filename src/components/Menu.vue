@@ -36,7 +36,8 @@
         },
         width: {
           type: [String],
-          required: false
+          required: false,
+          default: '300'
         },
         disableEsc: {
           type: Boolean,
@@ -53,6 +54,7 @@
       },
       methods: {
         openMenu() {
+          this.$emit('openMenu');
           this.isSideBarOpen = true;
           document.getElementById('sideNav').style.width = this.width
             ? this.width + 'px'
@@ -67,6 +69,7 @@
         },
 
         closeMenu() {
+          this.$emit('closeMenu');
           this.isSideBarOpen = false;
           document.body.className = document.body.className.replace(
             'bm-overlay',
