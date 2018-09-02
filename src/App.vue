@@ -1,33 +1,61 @@
 <template>
     <div id="app">
-
-        <ScaleDown>
-            <a href="#">
-                <i class="fa fa-fw fa-star-o"></i>
-                <span>Favourites</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bell-o"></i>
-                <span>Alerts</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-envelope-o"></i>
-                <span>Messages</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-comment-o"></i>
-                <span>Comments</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bar-chart-o"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-newspaper-o"></i>
-                <span>Reading</span>
-            </a>
-        </ScaleDown>
-
+        <span v-if="checkSide === 'right'">
+            <Menu right>
+                <a href="#">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Favourites</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-bell-o"></i>
+                    <span>Alerts</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-comment-o"></i>
+                    <span>Comments</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-bar-chart-o"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-newspaper-o"></i>
+                    <span>Reading List</span>
+                </a>
+            </Menu>
+        </span>
+        <span v-else>
+            <Menu>
+                <a href="#">
+                    <i class="fa fa-fw fa-star-o"></i>
+                    <span>Favourites</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-bell-o"></i>
+                    <span>Alerts</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-comment-o"></i>
+                    <span>Comments</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-bar-chart-o"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-fw fa-newspaper-o"></i>
+                    <span>Reading</span>
+                </a>
+            </Menu>
+        </span>
         <main id="page-wrap">
             <img src="https://img.shields.io/npm/dt/vue-burger-menu.svg" /> &emsp;
             <img src="https://img.shields.io/github/stars/mbj36/vue-burger-menu.svg" />
@@ -54,14 +82,14 @@
                 </span>
             </nav>
             Inspired by
-            <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas ScaleDown Effects</a> and
+            <a href="https://github.com/codrops/OffCanvasMenuEffects">Off-Canvas Menu Effects</a> and
             <a href="https://github.com/codrops/SidebarTransitions">Sidebar Transitions</a> by Codrops
         </main>
     </div>
 </template>
 
 <script>
-    import ScaleDown from './components/Menu/scaleDown';
+    import Menu from './components/Menu';
 
     export default {
       data() {
@@ -83,7 +111,7 @@
         };
       },
       components: {
-        ScaleDown: ScaleDown
+        Menu: Menu
       },
       methods: {
         changeSide(side) {
@@ -115,6 +143,7 @@
       color: #fffce1;
       font-family: 'Raleway', Arial, sans-serif;
       margin: 0px;
+      background: #b4bad2;
     }
 
     #app {
@@ -136,7 +165,6 @@
       padding: 3em 2em;
       text-align: center;
       overflow: auto;
-      background: #b4bad2;
     }
 
     h1 {
@@ -378,4 +406,3 @@
       .menu-4;
     }
 </style>
-
