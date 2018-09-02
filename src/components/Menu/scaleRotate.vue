@@ -36,9 +36,7 @@
           if (this.propsToPass.right != undefined) {
             document.querySelector(
               '#page-wrap'
-            ).style.transform = `translate3d(-${width}, 0px, 0px ) rotateY(15deg)`;
-            document.querySelector('#page-wrap').style.transformOrigin =
-              '100% 50% 0px';
+            ).style.transform = `translate3d(-${width}, 0px, 600px ) rotateY(20deg)`;
           } else {
             document.querySelector(
               '#page-wrap'
