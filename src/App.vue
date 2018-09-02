@@ -1,61 +1,31 @@
 <template>
     <div id="app">
-        <span v-if="checkSide === 'right'">
-            <Menu right>
-                <a href="#">
-                    <i class="fa fa-fw fa-star-o"></i>
-                    <span>Favourites</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-bell-o"></i>
-                    <span>Alerts</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-envelope-o"></i>
-                    <span>Messages</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-comment-o"></i>
-                    <span>Comments</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-bar-chart-o"></i>
-                    <span>Analytics</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-newspaper-o"></i>
-                    <span>Reading List</span>
-                </a>
-            </Menu>
-        </span>
-        <span v-else>
-            <Menu>
-                <a href="#">
-                    <i class="fa fa-fw fa-star-o"></i>
-                    <span>Favourites</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-bell-o"></i>
-                    <span>Alerts</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-envelope-o"></i>
-                    <span>Messages</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-comment-o"></i>
-                    <span>Comments</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-bar-chart-o"></i>
-                    <span>Analytics</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-fw fa-newspaper-o"></i>
-                    <span>Reading</span>
-                </a>
-            </Menu>
-        </span>
+        <component :is="currentMenu">
+            <a href="#">
+                <i class="fa fa-fw fa-star-o"></i>
+                <span>Favourites</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-fw fa-bell-o"></i>
+                <span>Alerts</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-fw fa-envelope-o"></i>
+                <span>Messages</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-fw fa-comment-o"></i>
+                <span>Comments</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-fw fa-bar-chart-o"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-fw fa-newspaper-o"></i>
+                <span>Reading</span>
+            </a>
+        </component>
         <main id="page-wrap">
             <img src="https://img.shields.io/npm/dt/vue-burger-menu.svg" /> &emsp;
             <img src="https://img.shields.io/github/stars/mbj36/vue-burger-menu.svg" />
@@ -69,13 +39,8 @@
 
             <nav class="demo-buttons">
                 <span v-for="(menu, index) in menus" :key="index">
-                    <span v-if="menu.buttonText === 'Slide'">
-                        <a :class="{currentDemo:true}">
-                            {{menu.buttonText}}
-                        </a>
-                    </span>
-                    <span v-else>
-                        <a :class="{currentDemo:false}">
+                    <span>
+                        <a :class="currentMenu === menu.buttonText.replace(/ +/g, '').toLowerCase() ? {currentDemo:true}: {currentDemo:false}" @click="changeMenu(menu.buttonText)">
                             {{menu.buttonText}}
                         </a>
                     </span>
@@ -89,6 +54,16 @@
 </template>
 
 <script>
+    import slide from './components/Menu/slide';
+    import bubble from './components/Menu/bubble';
+    import elastic from './components/Menu/elastic';
+    import falldown from './components/Menu/fallDown';
+    import push from './components/Menu/push';
+    import pushrotate from './components/Menu/pushRotate';
+    import reveal from './components/Menu/reveal';
+    import scaledown from './components/Menu/scaleDown';
+    import scalerotate from './components/Menu/scaleRotate';
+    import stack from './components/Menu/stack';
     import Menu from './components/Menu';
 
     export default {
@@ -96,26 +71,40 @@
         return {
           menus: {
             slide: { buttonText: 'Slide' },
-            stack: { buttonText: 'Stack - (WIP)' },
+            push: { buttonText: 'Push' },
+            pushRotate: { buttonText: 'Push Rotate' },
+            reveal: { buttonText: 'Reveal' },
+            scaleDown: { buttonText: 'Scale Down' },
+            scaleRotate: { buttonText: 'Scale Rotate' },
             elastic: { buttonText: 'Elastic - (WIP)' },
+            stack: { buttonText: 'Stack - (WIP)' },
             bubble: { buttonText: 'Bubble - (WIP)' },
-            push: { buttonText: 'Push - (WIP)' },
-            pushRotate: { buttonText: 'Push Rotate - (WIP)' },
-            scaleDown: { buttonText: 'Scale Down - (WIP)' },
-            scaleRotate: { buttonText: 'Scale Rotate - (WIP)' },
-            fallDown: { buttonText: 'Fall Down - (WIP)' },
-            reveal: { buttonText: 'Reveal - (WIP)' }
+            fallDown: { buttonText: 'Fall Down - (WIP)' }
           },
           side: 'left',
           currentMenu: 'slide'
         };
       },
       components: {
-        Menu: Menu
+        slide,
+        bubble,
+        elastic,
+        push,
+        pushrotate,
+        scaledown,
+        scalerotate,
+        reveal,
+        stack,
+        falldown,
+        Menu
       },
       methods: {
         changeSide(side) {
           this.side = side;
+        },
+        changeMenu(menu) {
+          this.currentMenu = menu.replace(/ +/g, '').toLowerCase();
+          return this.currentMenu;
         }
       },
       computed: {
@@ -143,7 +132,6 @@
       color: #fffce1;
       font-family: 'Raleway', Arial, sans-serif;
       margin: 0px;
-      background: #b4bad2;
     }
 
     #app {
@@ -165,6 +153,7 @@
       padding: 3em 2em;
       text-align: center;
       overflow: auto;
+      background: #b4bad2;
     }
 
     h1 {
@@ -382,27 +371,5 @@
           color: #b8b7ad;
         }
       }
-    }
-
-    #slide,
-    #stack,
-    #reveal {
-      .menu-1;
-    }
-
-    #bubble,
-    #push {
-      .menu-2;
-    }
-
-    #elastic {
-      .menu-3;
-    }
-
-    #scaleDown,
-    #scaleRotate,
-    #pushRotate,
-    #fallDown {
-      .menu-4;
     }
 </style>
