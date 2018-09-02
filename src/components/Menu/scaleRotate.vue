@@ -36,7 +36,7 @@
           if (this.propsToPass.right != undefined) {
             document.querySelector(
               '#page-wrap'
-            ).style.transform = `translate3d(-${width}, 0px, 600px ) rotateY(20deg)`;
+            ).style.transform = `translate3d(-${width}, 0px, -600px ) rotateY(20deg)`;
           } else {
             document.querySelector(
               '#page-wrap'

@@ -57,18 +57,18 @@ In your template
 The example above imported `slide` which renders a menu that slides in on the page when the burger icon is clicked. To use a different animation you can subsitute slide with any of the following
 
 * slide
+* scaleDown
+* scaleRotate
+* reveal
+* push
+* pushRotate
 
 ATTENTION - the below animations are in WIP
 
+* fallDown
 * stack
 * elastic
 * bubble
-* push
-* pushRotate
-* scaleDown
-* scaleRotate
-* fallDown
-* reveal
 
 ### Position
 
