@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <component :is="currentMenu">
+        <component :is="currentMenu" v-bind="checkSide">
             <a href="#">
                 <i class="fa fa-fw fa-star-o"></i>
                 <span>Favourites</span>
@@ -109,7 +109,11 @@
       },
       computed: {
         checkSide: function() {
-          return this.side;
+          if (this.side === 'right') {
+            return {
+              right: this.side
+            };
+          }
         }
       }
     };
