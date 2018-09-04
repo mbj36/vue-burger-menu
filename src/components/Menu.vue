@@ -115,27 +115,6 @@
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
-      },
-      watch: {
-        right: {
-          deep: true,
-          handler(newValue) {
-            if (newValue === true) {
-              document.querySelector('.bm-burger-button').style.left = 'auto';
-              document.querySelector('.bm-burger-button').style.right = '36px';
-            }
-            if (newValue === false) {
-              if (
-                document.querySelector('.bm-burger-button').hasAttribute('style')
-              ) {
-                document
-                  .querySelector('.bm-burger-button')
-                  .removeAttribute('style');
-                document.getElementById('sideNav').style.right = 'auto';
-              }
-            }
-          }
-        }
       }
     };
 </script>

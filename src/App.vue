@@ -101,6 +101,7 @@
       methods: {
         changeSide(side) {
           this.side = side;
+          this.$forceUpdate();
         },
         changeMenu(menu) {
           this.currentMenu = menu.replace(/ +/g, '').toLowerCase();
@@ -113,6 +114,27 @@
             return {
               right: this.side
             };
+          }
+        }
+      },
+      watch: {
+        checkSide: {
+          deep: true,
+          handler(oldValue, newValue) {
+            if (oldValue) {
+              document.querySelector('.bm-burger-button').style.left = 'auto';
+              document.querySelector('.bm-burger-button').style.right = '36px';
+            }
+            if (newValue) {
+              if (
+                document.querySelector('.bm-burger-button').hasAttribute('style')
+              ) {
+                document
+                  .querySelector('.bm-burger-button')
+                  .removeAttribute('style');
+                document.getElementById('sideNav').style.right = 'auto';
+              }
+            }
           }
         }
       }
