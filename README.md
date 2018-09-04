@@ -71,6 +71,45 @@ ATTENTION - the below animations are in WIP
 * elastic
 * bubble
 
+### Properties 
+
+Some animation require certain other elements on your page
+
+* Page wrapper - an element wrapping the rest of the content on yur page, placed after the menu component
+
+```javascript
+<Menu/>
+
+<main id="page-wrap">
+
+</main>
+
+```
+
+* Outer container called `app` - an element containing everything including the menu component
+
+```javascript
+<div id="app">
+
+    <Menu/>
+    <main id="page-wrap">
+    .
+    .
+    .
+    </main>
+```
+
+Check this table to see which animations require these elements:
+
+Animation | `pageWrapId` | `appId`
+--- | :---: | :---:
+`slide` | |
+`push` | &#x2713; | &#x2713;
+`pushRotate` |  &#x2713;  |  &#x2713;
+`scaleDown` |  &#x2713;  |  &#x2713;
+`scaleRotate` |  &#x2713;  |  &#x2713;
+`reveal` |  &#x2713;  |  &#x2713;
+
 ### Position
 
 The menu opens from left by default. To have it open from the right, use the `right` prop. It's just a boolean so you don't need to specify a value. 

@@ -120,6 +120,9 @@
 </script>
 
 <style>
+    html {
+      height: 100%;
+    }
     .bm-burger-button {
       position: fixed;
       width: 36px;
