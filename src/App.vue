@@ -135,6 +135,10 @@
                 document.getElementById('sideNav').style.right = 'auto';
               }
             }
+            if (this.side === 'right') {
+              document.querySelector('.bm-menu').style.left = 'auto';
+              document.querySelector('.bm-menu').style.right = '0px';
+            }
           }
         }
       }
