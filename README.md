@@ -81,7 +81,8 @@ Some animation require certain other elements on your page
 <Menu/>
 
 <main id="page-wrap">
-
+.
+.
 </main>
 
 ```
@@ -90,13 +91,13 @@ Some animation require certain other elements on your page
 
 ```javascript
 <div id="app">
-
     <Menu/>
     <main id="page-wrap">
     .
     .
     .
     </main>
+</div>
 ```
 
 Check this table to see which animations require these elements:
