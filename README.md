@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/vue-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/vue-burger-menu)
 
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fvue-burger-menu.netlify.com%2F&via=mbj36&text=Checkout%20vue-burger-menu&hashtags=%23vuejs)
+
 An off-canvas sidebar Vue component with a collection of effects and styles using CSS transitions and SVG path animations.
 
 ## Demo & examples
