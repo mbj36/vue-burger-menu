@@ -155,6 +155,14 @@ You can turn off the default overlay with `noOverlay`.
 <Slide noOverlay />
 ```
 
+### Burger Icon and Cross Icon
+
+You can disable both icons by passing burgerIcon and crossIcon to `false`. This can be useful if you want to keep the menu open and don't want the user to close the menu
+
+```javascript
+<Slide :burgerIcon="false" :crossIcon="false"/>
+```
+
 ### Styling
 
 Visual styles (color, font etc) need to be supplied with the help of CSS
