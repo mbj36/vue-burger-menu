@@ -13,6 +13,11 @@ Live demo - https://vue-burger-menu.netlify.com/
 To build the examples locally, run:
 
 ```
+npm i 
+npm run serve
+```
+
+```
 yarn 
 yarn serve
 ```
