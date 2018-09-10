@@ -50,15 +50,23 @@
         onStateChange: {
           type: Function,
           required: false
+        },
+        burgerIcon: {
+          type: Boolean,
+          required: false,
+          default: true
+        },
+        crossIcon: {
+          type: Boolean,
+          required: false,
+          default: true
         }
       },
       methods: {
         openMenu() {
           this.$emit('openMenu');
           this.isSideBarOpen = true;
-          document.getElementById('sideNav').style.width = this.width
-            ? this.width + 'px'
-            : '300px';
+
           if (!this.noOverlay) {
             document.body.className += 'bm-overlay';
           }
@@ -66,6 +74,11 @@
             document.querySelector('.bm-menu').style.left = 'auto';
             document.querySelector('.bm-menu').style.right = '0px';
           }
+          this.$nextTick(function() {
+            document.getElementById('sideNav').style.width = this.width
+              ? this.width + 'px'
+              : '300px';
+          });
         },
 
         closeMenu() {
@@ -96,17 +109,14 @@
       },
 
       mounted() {
-        if (this.isOpen) {
-          this.openMenu();
-        }
-
-        if (this.right) {
-          document.querySelector('.bm-burger-button').style.left = 'auto';
-          document.querySelector('.bm-burger-button').style.right = '36px';
-        }
-
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
+        }
+        if (this.burgerIcon === false) {
+          document.querySelector('.bm-burger-button').style.display = 'none';
+        }
+        if (this.crossIcon === false) {
+          document.querySelector('.bm-cross-button').style.display = 'none';
         }
       },
       created: function() {
@@ -115,6 +125,41 @@
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
+      },
+      watch: {
+        isOpen: {
+          deep: true,
+          immediate: true,
+          handler(oldValue) {
+            if (oldValue) {
+              this.openMenu();
+            }
+          }
+        },
+        right: {
+          deep: true,
+          immediate: true,
+          handler(oldValue, newValue) {
+            if (oldValue) {
+              this.$nextTick(() => {
+                document.querySelector('.bm-burger-button').style.left = 'auto';
+                document.querySelector('.bm-burger-button').style.right = '36px';
+                document.querySelector('.bm-menu').style.left = 'auto';
+                document.querySelector('.bm-menu').style.right = '0px';
+              });
+            }
+            if (newValue) {
+              if (
+                document.querySelector('.bm-burger-button').hasAttribute('style')
+              ) {
+                document
+                  .querySelector('.bm-burger-button')
+                  .removeAttribute('style');
+                document.getElementById('sideNav').style.right = 'auto';
+              }
+            }
+          }
+        }
       }
     };
 </script>
@@ -124,7 +169,7 @@
       height: 100%;
     }
     .bm-burger-button {
-      position: fixed;
+      position: absolute;
       width: 36px;
       height: 30px;
       left: 36px;

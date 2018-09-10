@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass">
+        <Menu v-bind="this.$attrs">
             <slot></slot>
         </Menu>
     </div>
@@ -12,18 +12,6 @@
       name: 'slide',
       components: {
         Menu: Menu
-      },
-      data() {
-        return {
-          propsToPass: {
-            isOpen: this.$attrs.isOpen,
-            right: this.$attrs.right,
-            width: this.$attrs.width,
-            disableEsc: this.$attrs.disableEsc,
-            noOverlay: this.$attrs.noOverlay,
-            onStateChange: this.$attrs.onStateChange
-          }
-        };
       }
     };
 </script>

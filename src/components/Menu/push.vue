@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass" @openMenu="push" @closeMenu="pull">
+        <Menu v-bind="this.$attrs" @openMenu="push" @closeMenu="pull">
             <slot></slot>
         </Menu>
     </div>
@@ -13,27 +13,13 @@
       components: {
         Menu: Menu
       },
-      data() {
-        return {
-          propsToPass: {
-            isOpen: this.$attrs.isOpen,
-            right: this.$attrs.right,
-            width: this.$attrs.width,
-            disableEsc: this.$attrs.disableEsc,
-            noOverlay: this.$attrs.noOverlay,
-            onStateChange: this.$attrs.onStateChange
-          }
-        };
-      },
       methods: {
         push() {
-          let width = this.propsToPass.width
-            ? this.propsToPass.width + 'px'
-            : '300px';
+          let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
 
           document.body.style.overflowX = 'hidden';
 
-          if (this.propsToPass.right != undefined) {
+          if (this.$attrs.right) {
             document.querySelector(
               '#page-wrap'
             ).style.transform = `translate3d(-${width}, 0px, 0px )`;

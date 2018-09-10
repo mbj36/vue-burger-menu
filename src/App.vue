@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <component :is="currentMenu" v-bind="checkSide">
+        <component :is="currentMenu" :right="side === 'right' ? true: false">
             <a href="#">
                 <i class="fa fa-fw fa-star-o"></i>
                 <span>Favourites</span>
@@ -99,47 +99,12 @@
         Menu
       },
       methods: {
-        changeSide(side) {
-          this.side = side;
-          this.$forceUpdate();
-        },
         changeMenu(menu) {
           this.currentMenu = menu.replace(/ +/g, '').toLowerCase();
           return this.currentMenu;
-        }
-      },
-      computed: {
-        checkSide: function() {
-          if (this.side === 'right') {
-            return {
-              right: this.side
-            };
-          }
-        }
-      },
-      watch: {
-        checkSide: {
-          deep: true,
-          handler(oldValue, newValue) {
-            if (oldValue) {
-              document.querySelector('.bm-burger-button').style.left = 'auto';
-              document.querySelector('.bm-burger-button').style.right = '36px';
-            }
-            if (newValue) {
-              if (
-                document.querySelector('.bm-burger-button').hasAttribute('style')
-              ) {
-                document
-                  .querySelector('.bm-burger-button')
-                  .removeAttribute('style');
-                document.getElementById('sideNav').style.right = 'auto';
-              }
-            }
-            if (this.side === 'right') {
-              document.querySelector('.bm-menu').style.left = 'auto';
-              document.querySelector('.bm-menu').style.right = '0px';
-            }
-          }
+        },
+        changeSide(side) {
+          this.side = side;
         }
       }
     };
@@ -182,8 +147,8 @@
       height: 100%;
       padding: 3em 2em;
       text-align: center;
-      overflow: auto;
       background: #b4bad2;
+      overflow: auto;
     }
 
     h1 {
@@ -274,7 +239,7 @@
     // Burger menu custom styles
     //
     .bm-burger-button {
-      position: fixed;
+      position: absolute;
       width: 36px;
       height: 30px;
       left: 36px;
