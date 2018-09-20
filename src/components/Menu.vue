@@ -102,7 +102,11 @@
         documentClick(e) {
           let element = document.querySelector('.bm-burger-button');
           let target = e.target;
-          if (element !== target && !element.contains(target)) {
+          if (
+            element !== target &&
+            !element.contains(target) &&
+            e.target.className !== 'bm-menu'
+          ) {
             this.closeMenu();
           }
         }
