@@ -1,9 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="this.$attrs"
-        @openMenu="openMenu"
-        @closeMenu="closeMenu"
-        >
+        <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
@@ -16,13 +13,13 @@
       components: {
         Menu: Menu
       },
-      methods : {
-          openMenu () {
-              this.$emit("openMenu")
-          },
-          closeMenu () {
-              this.$emit("closeMenu")
-          }
+      methods: {
+        openMenu() {
+          this.$emit('openMenu');
+        },
+        closeMenu() {
+          this.$emit('closeMenu');
+        }
       }
     };
 </script>
