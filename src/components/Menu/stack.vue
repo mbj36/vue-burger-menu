@@ -24,6 +24,14 @@
             onStateChange: this.$attrs.onStateChange
           }
         };
+      },
+      methods : {
+          openMenu () {
+              this.$emit("openMenu")
+          },
+          closeMenu () {
+              this.$emit("closeMenu")
+          }
       }
     };
 </script>
