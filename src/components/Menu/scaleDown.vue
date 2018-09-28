@@ -14,6 +14,12 @@
         Menu: Menu
       },
       methods: {
+        openMenu () {
+            this.$emit("openMenu")
+        },
+        closeMenu () {
+            this.$emit("closeMenu")
+        },
         push() {
           let width = this.$attrs.width ? this.$attrs.width + 'px' : '100px';
 
