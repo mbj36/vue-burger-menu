@@ -64,19 +64,19 @@ In your template
 
 The example above imported `slide` which renders a menu that slides in on the page when the burger icon is clicked. To use a different animation you can subsitute slide with any of the following
 
-* slide
-* scaleDown
-* scaleRotate
-* reveal
-* push
-* pushRotate
+* Slide
+* ScaleDown
+* ScaleRotate
+* Reveal
+* Push
+* PushRotate
 
 ATTENTION - the below animations are in WIP
 
-* fallDown
-* stack
-* elastic
-* bubble
+* FallDown
+* Stack
+* Elastic
+* Bubble
 
 ### Properties 
 
@@ -111,12 +111,12 @@ Check this table to see which animations require these elements:
 
 Animation | `pageWrapId` | `appId`
 --- | :---: | :---:
-`slide` | |
-`push` | &#x2713; | &#x2713;
-`pushRotate` |  &#x2713;  |  &#x2713;
-`scaleDown` |  &#x2713;  |  &#x2713;
-`scaleRotate` |  &#x2713;  |  &#x2713;
-`reveal` |  &#x2713;  |  &#x2713;
+`Slide` | |
+`Push` | &#x2713; | &#x2713;
+`PushRotate` |  &#x2713;  |  &#x2713;
+`ScaleDown` |  &#x2713;  |  &#x2713;
+`ScaleRotate` |  &#x2713;  |  &#x2713;
+`Reveal` |  &#x2713;  |  &#x2713;
 
 ### Position
 
