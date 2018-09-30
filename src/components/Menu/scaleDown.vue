@@ -52,6 +52,7 @@
           document.querySelector('#page-wrap').style.transform = '';
           document.querySelector('#page-wrap').style.transformStyle = '';
           document.querySelector('#page-wrap').style.transformOrigin = '';
+          document.querySelector('#page-wrap').style.overflow = 'auto';
 
           document.body.removeAttribute('style');
         }
