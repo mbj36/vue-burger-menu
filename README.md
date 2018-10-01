@@ -8,23 +8,23 @@ An off-canvas sidebar Vue component with a collection of effects and styles usin
 
 ## Demo & examples
 
-Live demo - https://vue-burger-menu.netlify.com/ 
+Live demo - https://vue-burger-menu.netlify.com/
 
 To build the examples locally, run:
 
 ```
-npm i 
+npm i
 npm run serve
 ```
 
 ```
-yarn 
+yarn
 yarn serve
 ```
 
 Then open [`localhost:8080`](http://localhost:8080) in a browser
 
-## Installation 
+## Installation
 
 ```
 npm install vue-burger-menu --save
@@ -38,7 +38,7 @@ yarn add vue-burger-menu
 
 Items should be passed as child elements of the components
 
-```javascript 
+```javascript
 import { Slide } from 'vue-burger-menu'  // import the CSS transitions you wish to use, in this case we are using `Slide`
 
 export default {
@@ -53,14 +53,14 @@ In your template
 ```
 <template>
     <Slide>
-      <a id="home" href="#"> 
-        <span>Home</span>  
+      <a id="home" href="#">
+        <span>Home</span>
       </a>
     </Slide>
 </template>
 ```
 
-### Animations 
+### Animations
 
 The example above imported `slide` which renders a menu that slides in on the page when the burger icon is clicked. To use a different animation you can subsitute slide with any of the following
 
@@ -78,7 +78,7 @@ ATTENTION - the below animations are in WIP
 * Elastic
 * Bubble
 
-### Properties 
+### Properties
 
 Some animation require certain other elements on your page
 
@@ -120,13 +120,13 @@ Animation | `pageWrapId` | `appId`
 
 ### Position
 
-The menu opens from left by default. To have it open from the right, use the `right` prop. It's just a boolean so you don't need to specify a value. 
+The menu opens from left by default. To have it open from the right, use the `right` prop. It's just a boolean so you don't need to specify a value.
 
 ```javascript
 <Slide right/>
 ```
 
-### Width 
+### Width
 
 You can specify the width of the menu with the `width` prop. The default is `300px`
 
@@ -143,7 +143,18 @@ You can control whether the sidebar is open or closed with the `isOpen` prop. Th
 
 <Slide isOpen>
 ```
+### Menu events
 
+If you want to get a notification when the menu open or close you can use the `openMenu` and `closeMenu` notifications. This way you can update your application state when the menu open or close
+
+```javascript
+// To bind the open and close events
+
+<Slide
+  @openMenu="handleOpenMenu"
+  @closeMenu="handleCloseMenu"
+>
+```
 ### Close on Escape
 
 By default, the menu will close when the Escape key is pressed. To disable this behavior, you can pass the `disableCloseOnEsc` prop. This is useful in cases where you want the menu to be open all the time, for example if you're implementing a responsive menu that behaves differently depending on the browser width.
