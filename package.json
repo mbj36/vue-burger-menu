@@ -1,6 +1,6 @@
 {
     "name": "vue-burger-menu",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "private": false,
     "scripts": {
         "serve": "vue-cli-service serve",
@@ -61,6 +61,7 @@
         "not ie <= 8"
     ],
     "files": [
-        "dist/vue-burger-menu.common.js"
+        "dist/vue-burger-menu.common.js",
+        "dist/vue-burger-menu.umd.js"
     ]
 }
