@@ -105,7 +105,8 @@
           if (
             element !== target &&
             !element.contains(target) &&
-            e.target.className !== 'bm-menu'
+            e.target.className !== 'bm-menu' &&
+            this.isSideBarOpen
           ) {
             this.closeMenu();
           }
@@ -134,9 +135,12 @@
         isOpen: {
           deep: true,
           immediate: true,
-          handler(oldValue) {
-            if (oldValue) {
-              this.openMenu();
+          handler(newValue, oldValue) {
+            if (!oldValue && newValue) {
+              this.openMenu()
+            }
+            if (oldValue && !newValue) {
+              this.closeMenu()
             }
           }
         },
