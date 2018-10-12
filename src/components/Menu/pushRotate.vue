@@ -21,6 +21,7 @@
             this.$emit("closeMenu")
         },
         push() {
+          this.openMenu()
           let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
 
           document.body.style.overflowX = 'hidden';
@@ -48,6 +49,7 @@
           document.querySelector('#app').style.overflow = 'hidden';
         },
         pull() {
+          this.closeMenu()
           document.querySelector('#page-wrap').style.transition =
             'all 0.5s ease 0s';
           document.querySelector('#page-wrap').style.transform = '';

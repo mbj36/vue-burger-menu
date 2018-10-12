@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass">
+        <Menu v-bind="propsToPass" openMenu="openMenu" @closeMenu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
