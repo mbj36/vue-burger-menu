@@ -75,10 +75,10 @@
             pushRotate: { buttonText: 'Push Rotate' },
             reveal: { buttonText: 'Reveal' },
             scaleDown: { buttonText: 'Scale Down' },
-            scaleRotate: { buttonText: 'Scale Rotate' }
+            scaleRotate: { buttonText: 'Scale Rotate' },
             // elastic: { buttonText: 'Elastic - (WIP)' },
             // stack: { buttonText: 'Stack - (WIP)' },
-            // bubble: { buttonText: 'Bubble - (WIP)' },
+            bubble: { buttonText: 'Bubble' },
             // fallDown: { buttonText: 'Fall Down - (WIP)' }
           },
           side: 'left',
