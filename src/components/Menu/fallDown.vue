@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass" openMenu="openMenu" @closeMenu="closeMenu">
+        <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
@@ -27,11 +27,45 @@
       },
       methods : {
           openMenu () {
-              this.$emit("openMenu")
+            this.$emit("openMenu")
+            let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
+            document.getElementById('sideNav').style.transition='0.5s';
+
+            document.body.style.overflowX = 'hidden';
+
+          if (this.$attrs.right) {
+             document.querySelector(
+              '#page-wrap'
+            ).style.transform = `translate3d(-${width}, 0px, 0px )`;
+          } else {
+             document.querySelector(
+              '#page-wrap'
+            ).style.transform = `translate3d(${width}, 0px, 0px )`;
+          }
+
+             document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+                                
+             setTimeout(function(){
+                document.getElementById('sideNav').style.height='100%';}
+                ,100);
+
+
           },
           closeMenu () {
-              this.$emit("closeMenu")
+            this.$emit("closeMenu")
+            document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+            document.querySelector('#page-wrap').style.transform = '';
+            document.body.removeAttribute('style');
+            document.getElementById('sideNav').style.height='0px';
+
           }
+      },
+      mounted () {
+        document.getElementById('sideNav').style.transition='0s';           
+        document.getElementById('sideNav').style.width='0px';
+        document.getElementById('sideNav').style.height='0px';
       }
     };
 </script>

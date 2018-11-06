@@ -75,11 +75,11 @@
             pushRotate: { buttonText: 'Push Rotate' },
             reveal: { buttonText: 'Reveal' },
             scaleDown: { buttonText: 'Scale Down' },
-            scaleRotate: { buttonText: 'Scale Rotate' }
+            scaleRotate: { buttonText: 'Scale Rotate' },
             // elastic: { buttonText: 'Elastic - (WIP)' },
             // stack: { buttonText: 'Stack - (WIP)' },
             // bubble: { buttonText: 'Bubble - (WIP)' },
-            // fallDown: { buttonText: 'Fall Down - (WIP)' }
+            fallDown: { buttonText: 'Fall Down' }
           },
           side: 'left',
           currentMenu: 'slide'
