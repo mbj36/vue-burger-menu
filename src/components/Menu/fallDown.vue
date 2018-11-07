@@ -29,9 +29,9 @@
           openMenu () {
             this.$emit("openMenu")
             let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
-            document.getElementById('sideNav').style.transition='0.5s';
-
+            document.getElementById('sideNav').style.overflowY = 'hidden';
             document.body.style.overflowX = 'hidden';
+            document.getElementById('sideNav').style.transition='0.5s';
 
           if (this.$attrs.right) {
              document.querySelector(
@@ -64,7 +64,6 @@
       },
       mounted () {
         document.getElementById('sideNav').style.transition='0s';           
-        document.getElementById('sideNav').style.width='0px';
         document.getElementById('sideNav').style.height='0px';
       }
     };
