@@ -45,11 +45,10 @@
 
              document.querySelector('#page-wrap').style.transition =
             'all 0.5s ease 0s';
-                                
-             setTimeout(function(){
-                document.getElementById('sideNav').style.height='100%';}
-                ,100);
 
+            this.$nextTick(() => {
+              document.getElementById('sideNav').style.height='100%';
+              });
 
           },
           closeMenu () {
@@ -63,7 +62,6 @@
           }
       },
       mounted () {
-        document.getElementById('sideNav').style.transition='0s';           
         document.getElementById('sideNav').style.height='0px';
       }
     };
