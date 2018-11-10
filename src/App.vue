@@ -78,7 +78,7 @@
             scaleRotate: { buttonText: 'Scale Rotate' },
             // elastic: { buttonText: 'Elastic - (WIP)' },
             // stack: { buttonText: 'Stack - (WIP)' },
-            // bubble: { buttonText: 'Bubble - (WIP)' },
+            bubble: { buttonText: 'Bubble' },
             fallDown: { buttonText: 'Fall Down' }
           },
           side: 'left',

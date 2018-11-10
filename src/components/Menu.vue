@@ -4,13 +4,13 @@
             <nav class="bm-item-list">
                 <slot></slot>
             </nav>
-            <span class="bm-cross-button cross-style" @click="closeMenu">
+            <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
                 <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
                 </span>
             </span>
         </div>
 
-        <div class="bm-burger-button" @click="openMenu">
+        <div class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
             <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
         </div>
 
@@ -117,12 +117,6 @@
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
-        if (this.burgerIcon === false) {
-          document.querySelector('.bm-burger-button').style.display = 'none';
-        }
-        if (this.crossIcon === false) {
-          document.querySelector('.bm-cross-button').style.display = 'none';
-        }
       },
       created: function() {
         document.addEventListener('click', this.documentClick);
@@ -184,6 +178,9 @@
       top: 36px;
       cursor: pointer;
     }
+    .bm-burger-button.hidden {
+      display: none;
+    }
     .bm-burger-bars {
       background-color: #373a47;
     }
@@ -205,6 +202,9 @@
     .bm-cross-button {
       height: 24px;
       width: 24px;
+    }
+    .bm-cross-button.hidden {
+      display: none;
     }
     .bm-menu {
       height: 100%; /* 100% Full-height */
