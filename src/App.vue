@@ -79,7 +79,7 @@
             // elastic: { buttonText: 'Elastic - (WIP)' },
             // stack: { buttonText: 'Stack - (WIP)' },
             bubble: { buttonText: 'Bubble' },
-            // fallDown: { buttonText: 'Fall Down - (WIP)' }
+            fallDown: { buttonText: 'Fall Down' }
           },
           side: 'left',
           currentMenu: 'slide'
