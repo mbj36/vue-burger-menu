@@ -1,30 +1,32 @@
 <template>
     <div id="app">
         <component :is="currentMenu" :right="side === 'right' ? true: false">
-            <a href="#">
-                <i class="fa fa-fw fa-star-o"></i>
-                <span>Favourites</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bell-o"></i>
-                <span>Alerts</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-envelope-o"></i>
-                <span>Messages</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-comment-o"></i>
-                <span>Comments</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bar-chart-o"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-newspaper-o"></i>
-                <span>Reading</span>
-            </a>
+            <nav class="bm-item-list">
+              <a href="#">
+                  <i class="fa fa-fw fa-star-o"></i>
+                  <span>Favourites</span>
+              </a>
+              <a href="#">
+                  <i class="fa fa-fw fa-bell-o"></i>
+                  <span>Alerts</span>
+              </a>
+              <a href="#">
+                  <i class="fa fa-fw fa-envelope-o"></i>
+                  <span>Messages</span>
+              </a>
+              <a href="#">
+                  <i class="fa fa-fw fa-comment-o"></i>
+                  <span>Comments</span>
+              </a>
+              <a href="#">
+                  <i class="fa fa-fw fa-bar-chart-o"></i>
+                  <span>Analytics</span>
+              </a>
+              <a href="#">
+                  <i class="fa fa-fw fa-newspaper-o"></i>
+                  <span>Reading</span>
+              </a>
+            </nav>
         </component>
         <main id="page-wrap">
             <img src="https://img.shields.io/npm/dt/vue-burger-menu.svg" /> &emsp;
@@ -109,6 +111,24 @@
       }
     };
 </script>
+
+<style>
+.bm-item-list {
+  color: #b8b7ad;
+  margin-left: 10%;
+  font-size: 20px;
+}
+.bm-item-list > * {
+  display: flex;
+  text-decoration: none;
+  padding: 0.7em;
+}
+.bm-item-list > * > span {
+  margin-left: 10px;
+  font-weight: 700;
+  color: white;
+}  
+</style>
 
  <style lang="less">
     *,
