@@ -1,6 +1,12 @@
 <template>
     <div id="app">
-        <component :is="currentMenu" :right="side === 'right' ? true: false">
+        <component :is="currentMenu" 
+          autoClose="768"
+          width="25%"
+          @closeMenu="open = false"
+          :isOpen="this.open"
+          :right="side === 'right' ? true: false">
+          
             <nav class="bm-item-list">
               <a href="#">
                   <i class="fa fa-fw fa-star-o"></i>
@@ -34,6 +40,7 @@
             <h1>
                 <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a> <br/>
             </h1>
+            <p><button @click="open = true">Open</button></p>
             <a :class="{ sideButton: true, left: true, active: this.side === 'left' }" @click="changeSide('left')">Left</a>
             <a :class="{sideButton: true, right: true, active: this.side === 'right' }" @click="changeSide('right')">Right</a>
 
@@ -84,7 +91,8 @@
             fallDown: { buttonText: 'Fall Down' }
           },
           side: 'left',
-          currentMenu: 'slide'
+          currentMenu: 'slide',
+          open: false
         };
       },
       components: {

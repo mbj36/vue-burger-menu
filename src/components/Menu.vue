@@ -1,14 +1,16 @@
 <template>
     <div>
-        <div class="bm-menu" :class="{ right: right, open: isSideBarOpen }" :style="{ width: currentWidth + 'px'}">
-            
-            <slot></slot>
-            
-            <span class="bm-cross-button cross-style" @click="closeMenu" v-if="this.crossIcon">
-                <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
-                </span>
-            </span>
-        </div>
+        <transition name="slide">
+          <div class="bm-menu" :class="{ right: right }" v-if="isSideBarOpen" :style="{ width: this.width }">
+              
+              <slot></slot>
+              
+              <span class="bm-cross-button cross-style" @click="closeMenu" v-if="this.crossIcon">
+                  <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
+                  </span>
+              </span>
+          </div>
+        </transition>
 
         <div class="bm-burger-button" :class="{ right: right }" @click="openMenu" v-if="this.burgerIcon">
             <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
@@ -26,22 +28,23 @@
       name: 'menubar',
       data() {
         return {
-          isSideBarOpen: false
-        };
+          isSideBarOpen: this.isOpen
+        }
       },
       props: {
         isOpen: {
           type: Boolean,
-          required: false
+          required: false,
+          default: false
         },
         right: {
           type: Boolean,
           required: false
         },
         width: {
-          type: [String],
+          type: [String,Number],
           required: false,
-          default: '300'
+          default: '300px'
         },
         disableEsc: {
           type: Boolean,
@@ -64,6 +67,10 @@
           type: Boolean,
           required: false,
           default: true
+        },
+        autoClose: {
+          type: [String,Number],
+          required: false
         }
       },
       methods: {
@@ -71,31 +78,37 @@
           this.$emit('openMenu');
           this.isSideBarOpen = true;
         },
-
         closeMenu() {
           this.$emit('closeMenu');
           this.isSideBarOpen = false;
         },
-
         closeMenuOnEsc(e) {
           e = e || window.event;
           if (e.key === 'Escape' || e.keyCode === 27) {
-            this.isSideBarOpen = false;
+            this.closeMenu();
           }
-        }
-      },
-      computed: {
-        currentWidth: function() {
-          return this.isSideBarOpen ? this.width : 0;
+        },
+        autoCloseMenu() {
+          if(window.innerWidth <= this.autoClose) {
+            this.closeMenu();
+          }
         }
       },
       mounted() {
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
+        if (this.autoClose) {
+          window.addEventListener('resize', this.autoCloseMenu);
+        }
       },
-      destroyed: function() {
-        document.removeEventListener('keyup', this.closeMenuOnEsc);
+      destroyed() {
+        if (!this.disableEsc) {
+          document.removeEventListener('keyup', this.closeMenuOnEsc);
+        }
+        if (this.autoClose) {
+          window.removeEventListener('keyup', this.autoCloseMenu);
+        }
       },
       watch: {
         isOpen: {
@@ -151,15 +164,19 @@
     }
     .bm-menu {
       height: 100%;
-      width: 0;
       position: fixed;
-      z-index: 1000;
+      z-index: 1000;      
       top: 0;
       left: 0;
       background-color: #3f3f41;
       overflow-x: hidden;
       padding-top: 60px;
-      transition: 0.5s;
+    }
+    .slide-enter-active, .slide-leave-active {
+      transition: width .25s;
+    }
+    .slide-enter, .slide-leave-to {
+      width: 0 !important;
     }
     .bm-menu.right {
       left:auto;
