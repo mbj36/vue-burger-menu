@@ -5,13 +5,15 @@
                 <slot></slot>
             </nav>
             <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
-                <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
-                </span>
+                <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(-45deg)'}"></span>
+                <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(45deg)'}"></span>
             </span>
         </div>
 
         <div class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
-            <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
+            <span class="bm-burger-bars line-style" :style="{top:'0%'}"></span>
+            <span class="bm-burger-bars line-style" :style="{top:'40%'}"></span>
+            <span class="bm-burger-bars line-style" :style="{top:'80%'}"></span>
         </div>
 
     </div>
@@ -71,8 +73,9 @@
             document.body.className += 'bm-overlay';
           }
           if (this.right) {
-            document.querySelector('.bm-menu').style.left = 'auto';
-            document.querySelector('.bm-menu').style.right = '0px';
+            const burgerMenu = document.querySelector('.bm-menu');
+            burgerMenu.style.left = 'auto';
+            burgerMenu.style.right = '0px';
           }
           this.$nextTick(function() {
             document.getElementById('sideNav').style.width = this.width
@@ -144,10 +147,12 @@
           handler(oldValue, newValue) {
             if (oldValue) {
               this.$nextTick(() => {
-                document.querySelector('.bm-burger-button').style.left = 'auto';
-                document.querySelector('.bm-burger-button').style.right = '36px';
-                document.querySelector('.bm-menu').style.left = 'auto';
-                document.querySelector('.bm-menu').style.right = '0px';
+                const burgerButton = document.querySelector('.bm-burger-button');
+                const burgerMenu = document.querySelector('.bm-menu');
+                burgerButton.style.left = 'auto';
+                burgerButton.style.right = '36px';
+                burgerMenu.style.left = 'auto';
+                burgerMenu.style.right = '0px';
               });
             }
             if (newValue) {
