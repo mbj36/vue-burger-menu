@@ -65,9 +65,12 @@
         }
       },
       methods: {
-        openMenu() {
+        openMenu(e) {
+          e.stopPropagation();
+          e.preventDefault();
+
           if (this.isSideBarOpen){
-            return;
+            return false;
           }
 
           this.$emit('openMenu');
@@ -86,11 +89,14 @@
               ? this.width + 'px'
               : '300px';
           });
+          return false;
         },
 
-        closeMenu() {
+        closeMenu(e) {
+          e.stopPropagation();
+          e.preventDefault();
           if (!this.isSideBarOpen){
-            return;
+            return false;
           }
 
           this.$emit('closeMenu');
@@ -100,6 +106,7 @@
             ''
           );
           document.getElementById('sideNav').style.width = '0px';
+          return false;
         },
 
         closeMenuOnEsc(e) {
