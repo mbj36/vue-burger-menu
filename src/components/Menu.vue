@@ -4,13 +4,13 @@
             <nav class="bm-item-list">
                 <slot></slot>
             </nav>
-            <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
+            <span class="bm-cross-button cross-style" :class="{ hidden: !crossIcon }">
                 <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(-45deg)'}"></span>
                 <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(45deg)'}"></span>
             </span>
         </div>
 
-        <div class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
+        <div class="bm-burger-button" :class="{ hidden: !burgerIcon }">
             <span class="bm-burger-bars line-style" :style="{top:'0%'}"></span>
             <span class="bm-burger-bars line-style" :style="{top:'40%'}"></span>
             <span class="bm-burger-bars line-style" :style="{top:'80%'}"></span>
@@ -66,6 +66,10 @@
       },
       methods: {
         openMenu() {
+          if (this.isSideBarOpen){
+            return;
+          }
+
           this.$emit('openMenu');
           this.isSideBarOpen = true;
 
@@ -85,6 +89,10 @@
         },
 
         closeMenu() {
+          if (!this.isSideBarOpen){
+            return;
+          }
+
           this.$emit('closeMenu');
           this.isSideBarOpen = false;
           document.body.className = document.body.className.replace(
@@ -103,7 +111,7 @@
           }
         },
         documentClick(e) {
-          let element = document.querySelector('.bm-burger-button');
+          const element = this.getBurgerButton();
           let target = e.target;
           if (
             element !== target &&
@@ -113,13 +121,26 @@
           ) {
             this.closeMenu();
           }
+        },
+        getBurgerButton(){
+          return document.querySelector('.bm-burger-button');
+        },
+        getCloseButton(){
+          return document.querySelector('.bm-cross-button');
         }
       },
-
       mounted() {
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
+
+        const burgerButton = this.getBurgerButton();
+        const closeButton = this.getCloseButton();
+        burgerButton.addEventListener('touchstart', this.openMenu);
+        burgerButton.addEventListener('click', this.openMenu);
+        closeButton.addEventListener('click', this.closeMenu);
+        closeButton.addEventListener('touchstart', this.closeMenu);
+
       },
       created: function() {
         document.addEventListener('click', this.documentClick);
