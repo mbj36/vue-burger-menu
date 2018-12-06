@@ -1,6 +1,6 @@
 {
     "name": "@codeo/vue-burger-menu",
-    "version": "1.0.14",
+    "version": "1.0.15",
     "private": false,
     "scripts": {
         "serve": "vue-cli-service serve",

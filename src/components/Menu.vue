@@ -66,8 +66,10 @@
       },
       methods: {
         openMenu(e) {
-          e.stopPropagation();
-          e.preventDefault();
+          if (e){
+            e.stopPropagation();
+            e.preventDefault();
+          }
 
           if (this.isSideBarOpen){
             return false;
@@ -93,8 +95,10 @@
         },
 
         closeMenu(e) {
-          e.stopPropagation();
-          e.preventDefault();
+          if (e){
+            e.stopPropagation();
+            e.preventDefault();
+          }
           if (!this.isSideBarOpen){
             return false;
           }
@@ -155,6 +159,12 @@
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
+        const burgerButton = this.getBurgerButton();
+        const closeButton = this.getCloseButton();
+        burgerButton.removeEventListener('touchstart', this.openMenu);
+        burgerButton.removeEventListener('click', this.openMenu);
+        closeButton.removeEventListener('click', this.closeMenu);
+        closeButton.removeEventListener('touchstart', this.closeMenu);
       },
       watch: {
         isOpen: {
@@ -175,7 +185,7 @@
           handler(oldValue, newValue) {
             if (oldValue) {
               this.$nextTick(() => {
-                const burgerButton = document.querySelector('.bm-burger-button');
+                const burgerButton = this.getBurgerButton();
                 const burgerMenu = document.querySelector('.bm-menu');
                 burgerButton.style.left = 'auto';
                 burgerButton.style.right = '36px';
@@ -185,11 +195,9 @@
             }
             if (newValue) {
               if (
-                document.querySelector('.bm-burger-button').hasAttribute('style')
+                this.getBurgerButton().hasAttribute('style')
               ) {
-                document
-                  .querySelector('.bm-burger-button')
-                  .removeAttribute('style');
+                this.getBurgerButton().removeAttribute('style');
                 document.getElementById('sideNav').style.right = 'auto';
               }
             }
