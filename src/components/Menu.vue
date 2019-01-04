@@ -99,15 +99,15 @@
             this.isSideBarOpen = false;
           }
         },
-	    documentClick(e) {
+        documentClick(e) {
           let element = document.querySelector('.bm-burger-button');
           let target = null;
-          if(e && e.target) {
-              target = e.target;
-            }
+          if (e && e.target) {
+            target = e.target;
+          }
 
           if (
-            element && 
+            element &&
             element !== target &&
             !element.contains(target) &&
             e.target.className !== 'bm-menu' &&
@@ -116,7 +116,7 @@
             this.closeMenu();
           }
         }
-	  },
+      },
 
       mounted() {
         if (!this.disableEsc) {
@@ -136,10 +136,10 @@
           immediate: true,
           handler(newValue, oldValue) {
             if (!oldValue && newValue) {
-              this.openMenu()
+              this.openMenu();
             }
             if (oldValue && !newValue) {
-              this.closeMenu()
+              this.closeMenu();
             }
           }
         },

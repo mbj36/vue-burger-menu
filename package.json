@@ -1,67 +1,67 @@
 {
-    "name": "vue-burger-menu",
-    "version": "1.0.9",
-    "private": false,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
+  "name": "vue-burger-menu",
+  "version": "2.0.0",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
+  "author": {
+    "name": "Mohit Bajoria",
+    "email": "mohitbajo36@gmail.com",
+    "url": "https://mbj36.xyz"
+  },
+  "keywords": [
+    "vuejs",
+    "menu",
+    "hamburger",
+    "sidebar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbj36/vue-burger-menu.git"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "main": "./dist/vue-burger-menu.common.js",
+  "license": "MIT",
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-        "vue": "^2.5.17"
-    },
-    "author": {
-        "name": "Mohit Bajoria",
-        "email": "mohitbajo36@gmail.com",
-        "url": "https://mbj36.xyz"
-    },
-    "keywords": [
-        "vuejs",
-        "menu",
-        "hamburger",
-        "sidebar"
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mbj36/vue-burger-menu.git"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.0",
-        "@vue/cli-plugin-eslint": "^3.0.0",
-        "@vue/cli-service": "^3.0.0",
-        "less": "^3.8.1",
-        "less-loader": "^4.1.0",
-        "vue-template-compiler": "^2.5.17"
-    },
-    "main": "./dist/vue-burger-menu.common.js",
-    "license": "MIT",
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
-        ],
-        "rules": {},
-        "parserOptions": {
-            "parser": "babel-eslint"
-        }
-    },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ],
-    "files": [
-        "dist/vue-burger-menu.common.js",
-        "dist/vue-burger-menu.umd.js"
-    ]
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "files": [
+    "dist/vue-burger-menu.common.js",
+    "dist/vue-burger-menu.umd.js"
+  ]
 }
