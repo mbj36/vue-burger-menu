@@ -99,10 +99,15 @@
             this.isSideBarOpen = false;
           }
         },
-        documentClick(e) {
+	    documentClick(e) {
           let element = document.querySelector('.bm-burger-button');
-          let target = e.target;
+          let target = null;
+          if(e && e.target) {
+              target = e.target;
+            }
+
           if (
+            element && 
             element !== target &&
             !element.contains(target) &&
             e.target.className !== 'bm-menu' &&
@@ -111,7 +116,7 @@
             this.closeMenu();
           }
         }
-      },
+	  },
 
       mounted() {
         if (!this.disableEsc) {
