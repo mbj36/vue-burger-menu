@@ -1,27 +1,25 @@
 <template>
-    <div>
-        <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
-            <slot></slot>
-        </Menu>
-    </div>
+  <div>
+    <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
+      <slot></slot>
+    </Menu>
+  </div>
 </template>
 
 <script>
-    import Menu from '../Menu';
-    export default {
-      name: 'slide',
-      components: {
-        Menu: Menu
+  import Menu from '../Menu';
+  export default {
+    name: 'slide',
+    components: {
+      Menu: Menu
+    },
+    methods: {
+      openMenu() {
+        this.$emit('openMenu');
       },
-      methods: {
-        openMenu() {
-          this.$emit('openMenu');
-        },
-        closeMenu() {
-          this.$emit('closeMenu');
-        }
+      closeMenu() {
+        this.$emit('closeMenu');
       }
-    };
+    }
+  };
 </script>
-
-

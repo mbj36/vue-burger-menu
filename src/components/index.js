@@ -13,15 +13,15 @@ import ScaleDown from './Menu/scaleDown'
 import Menu from './Menu'
 
 export default {
-    Menu,
-    Slide,
-    Bubble,
-    Reveal,
-    Push,
-    PushRotate,
-    ScaleDown,
-    ScaleRotate,
-    Stack,
-    FallDown,
-    Elastic
+  Menu,
+  Slide,
+  Bubble,
+  Reveal,
+  Push,
+  PushRotate,
+  ScaleDown,
+  ScaleRotate,
+  Stack,
+  FallDown,
+  Elastic
 }

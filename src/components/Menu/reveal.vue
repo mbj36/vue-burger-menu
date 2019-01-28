@@ -1,55 +1,53 @@
 <template>
-    <div>
-        <Menu v-bind="this.$attrs" @openMenu="push" @closeMenu="pull">
-            <slot></slot>
-        </Menu>
-    </div>
+  <div>
+    <Menu v-bind="this.$attrs" @openMenu="push" @closeMenu="pull">
+      <slot></slot>
+    </Menu>
+  </div>
 </template>
 
 <script>
-    import Menu from '../Menu';
-    export default {
-      name: 'reveal',
-      components: {
-        Menu: Menu
+  import Menu from '../Menu';
+  export default {
+    name: 'reveal',
+    components: {
+      Menu: Menu
+    },
+    methods: {
+      openMenu () {
+        this.$emit("openMenu")
       },
-      methods: {
-        openMenu () {
-            this.$emit("openMenu")
-        },
-        closeMenu () {
-            this.$emit("closeMenu")
-        },
-        push() {
-          this.openMenu()
-          let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
+      closeMenu () {
+        this.$emit("closeMenu")
+      },
+      push() {
+        this.openMenu()
+        let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
 
-          document.body.style.overflowX = 'hidden';
+        document.body.style.overflowX = 'hidden';
 
-          if (this.$attrs.right) {
-            document.querySelector(
-              '#page-wrap'
-            ).style.transform = `translate3d(-${width}, 0px, 0px )`;
-          } else {
-            document.querySelector(
-              '#page-wrap'
-            ).style.transform = `translate3d(${width}, 0px, 0px )`;
-          }
-
-          document.querySelector('#page-wrap').style.position = 'relative';
-          document.querySelector('#page-wrap').style.transition =
-            'all 0.5s ease 0s';
-        },
-        pull() {
-          this.closeMenu()
-          document.querySelector('#page-wrap').style.transition =
-            'all 0.5s ease 0s';
-          document.querySelector('#page-wrap').style.transform = '';
-          document.querySelector('#page-wrap').style.position = '';
-          document.body.removeAttribute('style');
+        if (this.$attrs.right) {
+          document.querySelector(
+            '#page-wrap'
+          ).style.transform = `translate3d(-${width}, 0px, 0px )`;
+        } else {
+          document.querySelector(
+            '#page-wrap'
+          ).style.transform = `translate3d(${width}, 0px, 0px )`;
         }
+
+        document.querySelector('#page-wrap').style.position = 'relative';
+        document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+      },
+      pull() {
+        this.closeMenu()
+        document.querySelector('#page-wrap').style.transition =
+            'all 0.5s ease 0s';
+        document.querySelector('#page-wrap').style.transform = '';
+        document.querySelector('#page-wrap').style.position = '';
+        document.body.removeAttribute('style');
       }
-    };
+    }
+  };
 </script>
-
-
