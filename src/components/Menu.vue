@@ -141,12 +141,14 @@
           deep: true,
           immediate: true,
           handler(newValue, oldValue) {
-            if (!oldValue && newValue) {
-              this.openMenu();
-            }
-            if (oldValue && !newValue) {
-              this.closeMenu();
-            }
+            this.$nextTick(() => {
+              if (!oldValue && newValue) {
+                this.openMenu();
+              }
+              if (oldValue && !newValue) {
+                this.closeMenu();
+              }
+            });
           }
         },
         right: {
