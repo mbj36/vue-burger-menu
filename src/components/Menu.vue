@@ -60,6 +60,11 @@
           type: Boolean,
           required: false,
           default: true
+        },
+        disableOutsideClick: {
+          type: Boolean,
+          required: false,
+          default: false
         }
       },
       methods: {
@@ -111,7 +116,8 @@
             element !== target &&
             !element.contains(target) &&
             e.target.className !== 'bm-menu' &&
-            this.isSideBarOpen
+            this.isSideBarOpen &&
+            !this.disableOutsideClick
           ) {
             this.closeMenu();
           }
