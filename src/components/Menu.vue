@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="sideNav" class="bm-menu">
+        <div ref="sideNav" class="bm-menu">
             <nav class="bm-item-list">
                 <slot></slot>
             </nav>
@@ -10,7 +10,7 @@
             </span>
         </div>
 
-        <div class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
+        <div ref="bmBurgerButton" class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
             <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
         </div>
 
@@ -76,11 +76,11 @@
             document.body.className += 'bm-overlay';
           }
           if (this.right) {
-            document.querySelector('.bm-menu').style.left = 'auto';
-            document.querySelector('.bm-menu').style.right = '0px';
+            this.$refs.sideNav.style.left = 'auto';
+            this.$refs.sideNav.style.right = '0px';
           }
           this.$nextTick(function() {
-            document.getElementById('sideNav').style.width = this.width
+            this.$refs.sideNav.style.width = this.width
               ? this.width + 'px'
               : '300px';
           });
@@ -93,19 +93,19 @@
             'bm-overlay',
             ''
           );
-          document.getElementById('sideNav').style.width = '0px';
+          this.$refs.sideNav.style.width = '0px';
         },
 
         closeMenuOnEsc(e) {
           e = e || window.event;
           if (e.key === 'Escape' || e.keyCode === 27) {
-            document.getElementById('sideNav').style.width = '0px';
+            this.$refs.sideNav.style.width = '0px';
             document.body.style.backgroundColor = 'inherit';
             this.isSideBarOpen = false;
           }
         },
         documentClick(e) {
-          let element = document.querySelector('.bm-burger-button');
+          let element = this.$refs.bmBurgerButton;
           let target = null;
           if (e && e.target) {
             target = e.target;
@@ -155,20 +155,18 @@
           handler(oldValue, newValue) {
             if (oldValue) {
               this.$nextTick(() => {
-                document.querySelector('.bm-burger-button').style.left = 'auto';
-                document.querySelector('.bm-burger-button').style.right = '36px';
-                document.querySelector('.bm-menu').style.left = 'auto';
-                document.querySelector('.bm-menu').style.right = '0px';
+                this.$refs.bmBurgerButton.style.left = 'auto';
+                this.$refs.bmBurgerButton.style.right = '36px';
+                this.$refs.sideNav.style.left = 'auto';
+                this.$refs.sideNav.style.right = '0px';
               });
             }
             if (newValue) {
               if (
-                document.querySelector('.bm-burger-button').hasAttribute('style')
+                this.$refs.bmBurgerButton.hasAttribute('style')
               ) {
-                document
-                  .querySelector('.bm-burger-button')
-                  .removeAttribute('style');
-                document.getElementById('sideNav').style.right = 'auto';
+                this.$refs.bmBurgerButton.removeAttribute('style');
+                this.$refs.sideNav.style.right = 'auto';
               }
             }
           }
