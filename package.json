@@ -24,15 +24,15 @@
     "url": "git+https://github.com/mbj36/vue-burger-menu.git"
   },
   "dependencies": {
-    "vue": "^2.5.22"
+    "vue": "^2.6.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-eslint": "^3.3.0",
-    "@vue/cli-service": "^3.3.1",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.22"
+    "vue-template-compiler": "^2.6.6"
   },
   "main": "./dist/vue-burger-menu.common.js",
   "license": "MIT",
