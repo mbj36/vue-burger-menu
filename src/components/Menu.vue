@@ -153,6 +153,7 @@
                 document.querySelector('.bm-burger-button').style.right = '36px';
                 document.querySelector('.bm-menu').style.left = 'auto';
                 document.querySelector('.bm-menu').style.right = '0px';
+                document.querySelector('.cross-style').style.right='250px';
               });
             }
             if (newValue) {
@@ -163,6 +164,7 @@
                   .querySelector('.bm-burger-button')
                   .removeAttribute('style');
                 document.getElementById('sideNav').style.right = 'auto';
+                document.querySelector('.cross-style').style.right='0px';
               }
             }
           }
