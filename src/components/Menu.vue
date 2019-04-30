@@ -99,9 +99,7 @@
         closeMenuOnEsc(e) {
           e = e || window.event;
           if (e.key === 'Escape' || e.keyCode === 27) {
-            this.$refs.sideNav.style.width = '0px';
-            document.body.style.backgroundColor = 'inherit';
-            this.isSideBarOpen = false;
+            this.closeMenu();
           }
         },
         documentClick(e) {
