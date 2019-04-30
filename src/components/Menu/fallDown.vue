@@ -15,6 +15,7 @@
       },
       data() {
         return {
+          bodyOldStyle: '',
           propsToPass: {
             isOpen: this.$attrs.isOpen,
             right: this.$attrs.right,
@@ -30,6 +31,7 @@
             this.$emit("openMenu")
             let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
             this.$refs.sideNav.$el.querySelector('.bm-menu').style.overflowY = 'hidden';
+            this.bodyOldStyle = document.body.getAttribute('style') || '';
             document.body.style.overflowX = 'hidden';
             this.$refs.sideNav.$el.querySelector('.bm-menu').style.transition='0.5s';
 
@@ -56,7 +58,7 @@
             document.querySelector('#page-wrap').style.transition =
             'all 0.5s ease 0s';
             document.querySelector('#page-wrap').style.transform = '';
-            document.body.removeAttribute('style');
+            document.body.setAttribute('style', this.bodyOldStyle);
             this.$refs.sideNav.$el.querySelector('.bm-menu').style.height='0px';
 
           }
