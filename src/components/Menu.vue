@@ -73,7 +73,7 @@
           this.isSideBarOpen = true;
 
           if (!this.noOverlay) {
-            document.body.className += 'bm-overlay';
+            document.body.classList.add('bm-overlay');
           }
           if (this.right) {
             this.$refs.sideNav.style.left = 'auto';
@@ -89,10 +89,7 @@
         closeMenu() {
           this.$emit('closeMenu');
           this.isSideBarOpen = false;
-          document.body.className = document.body.className.replace(
-            'bm-overlay',
-            ''
-          );
+          document.body.classList.remove('bm-overlay');
           this.$refs.sideNav.style.width = '0px';
         },
 
