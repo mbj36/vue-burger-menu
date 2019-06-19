@@ -160,7 +160,7 @@ If you want to get a notification when the menu open or close you can use the `o
 You can turn off the menu closing when an an outside click is triggered with `disableOutsideClick`.
 
 ``` javascript
-<Slide disableOutsideClick />
+<Slide disableOutsideClick>
 ```
 
 ### Close on Escape
