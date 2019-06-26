@@ -13,6 +13,12 @@
       components: {
         Menu: Menu
       },
+      data() {
+        return {
+          bodyOldStyle: '',
+          appOldStyle: ''
+        };
+      },
       methods: {
         openMenu () {
             this.$emit("openMenu")
@@ -24,6 +30,7 @@
           this.openMenu()
           let width = this.$attrs.width ? this.$attrs.width + 'px' : '100px';
 
+          this.bodyOldStyle = document.body.getAttribute('style') || '';
           document.body.style.overflowX = 'hidden';
 
           if (this.$attrs.right) {
@@ -42,6 +49,7 @@
             'all 0.5s ease 0s';
 
           document.querySelector('#page-wrap').style.overflow = 'hidden';
+          this.appOldStyle = document.querySelector('#app').getAttribute('style') || '';
 
           document.querySelector('#app').style.perspective = '1500px';
           document.querySelector('#app').style.overflow = 'hidden';
@@ -56,7 +64,8 @@
           document.querySelector('#page-wrap').style.transformOrigin = '';
           document.querySelector('#page-wrap').style.overflow = 'auto';
 
-          document.body.removeAttribute('style');
+          document.querySelector('#app').setAttribute('style', this.appOldStyle);
+          document.body.setAttribute('style', this.bodyOldStyle);
         }
       }
     };
