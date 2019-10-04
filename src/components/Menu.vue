@@ -197,7 +197,7 @@
                 this.$refs.bmBurgerButton.style.right = '36px';
                 this.$refs.sideNav.style.left = 'auto';
                 this.$refs.sideNav.style.right = '0px';
-                var burgerButton = document.querySelector('.bm-burger-button');
+                var burgerButton = this.getBurgerButton();
                 burgerButton.style.left = 'auto';
                 burgerButton.style.right = '36px';
                 var burgerMenu = document.querySelector('.bm-menu')
