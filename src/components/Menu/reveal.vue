@@ -10,6 +10,11 @@
     import Menu from '../Menu';
     export default {
       name: 'reveal',
+      data() {
+        return {
+          bodyOldStyle: ''
+        };
+      },
       components: {
         Menu: Menu
       },
@@ -24,6 +29,7 @@
           this.openMenu()
           let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
 
+          this.bodyOldStyle = document.body.getAttribute('style') || '';
           document.body.style.overflowX = 'hidden';
 
           if (this.$attrs.right) {
@@ -46,7 +52,7 @@
             'all 0.5s ease 0s';
           document.querySelector('#page-wrap').style.transform = '';
           document.querySelector('#page-wrap').style.position = '';
-          document.body.removeAttribute('style');
+          document.body.setAttribute('style', this.bodyOldStyle);
         }
       }
     };

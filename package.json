@@ -1,67 +1,101 @@
 {
-    "name": "@codeo/vue-burger-menu",
-    "version": "1.0.15",
-    "private": false,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
+  "name": "@codeo/vue-burger-menu",
+  "version": "2.0.2",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
+  },
+  "files": [
+    "dist/vue-burger-menu.common.js",
+    "dist/vue-burger-menu.umd.js"
+  ],
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
+  "contributors": [
+    {
+      "name": "Mohit Bajoria",
+      "email": "mohitbajo36@gmail.com",
+      "url": "https://mbj36.xyz"
     },
-    "dependencies": {
-        "vue": "^2.5.17"
+    {
+      "name": "Rohland de Charmoy",
+      "email": "rohland@codeo.co.za"
     },
-    "author": {
-        "name": "Mohit Bajoria",
-        "email": "mohitbajo36@gmail.com",
-        "url": "https://mbj36.xyz"
+    {
+      "name": "mritunjaygoutam12",
+      "email": "mritunjaygoutam2204@gmail.com"
     },
-    "keywords": [
-        "vuejs",
-        "menu",
-        "hamburger",
-        "sidebar"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mbj36/vue-burger-menu.git"
+    {
+      "name": "Jacob Fulton",
+      "email": "jacob.fulton@foodsby.com"
     },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.0",
-        "@vue/cli-plugin-eslint": "^3.0.0",
-        "@vue/cli-service": "^3.0.0",
-        "less": "^3.8.1",
-        "less-loader": "^4.1.0",
-        "vue-template-compiler": "^2.5.17"
+    {
+      "name": "Mohit kumar Bajoria",
+      "email": "mohitbajo36@gmail.com"
     },
-    "main": "./dist/vue-burger-menu.common.js",
-    "license": "MIT",
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
-        ],
-        "rules": {},
-        "parserOptions": {
-            "parser": "babel-eslint"
-        }
+    {
+      "name": "Osir Gueye",
+      "email": "osir.gueye@numberly.com"
     },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
+    {
+      "name": "Shivam Luthra",
+      "email": "sluthra145@gmail.com"
     },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ],
-    "files": [
-        "dist/vue-burger-menu.common.js",
-        "dist/vue-burger-menu.umd.js"
+    {
+      "name": "Shruti",
+      "email": "31311259+Sshruti10@users.noreply.github.com"
+    },
+    {
+      "name": "Davyd McColl",
+      "email": "davydm@gmail.com"
+    }
+  ],
+  "keywords": [
+    "vuejs",
+    "menu",
+    "hamburger",
+    "sidebar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeo-za/vue-burger-menu.git"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "main": "./dist/vue-burger-menu.common.js",
+  "license": "MIT",
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
     ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
