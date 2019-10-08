@@ -144,20 +144,46 @@
         },
         getCloseButton(){
           return document.querySelector('.bm-cross-button');
+        },
+        addEventListenersToBurgerMenu(){
+            const burgerButton = this.getBurgerButton();
+            if(!burgerButton) {
+                return;
+            }
+            burgerButton.addEventListener('touchstart', this.openMenu);
+            burgerButton.addEventListener('click', this.openMenu);
+        },
+        addEventListenersToCloseButton(){
+          const closeButton = this.getCloseButton();
+          if(!closeButton) {
+              return;
+          }
+          closeButton.addEventListener('click', this.closeMenu);
+          closeButton.addEventListener('touchstart', this.closeMenu);
+        },
+        removeEventListenersFromBurgerMenu(){
+          const burgerButton = this.getBurgerButton();
+          if(!burgerButton) {
+              return;
+          }
+          burgerButton.removeEventListener('touchstart', this.openMenu);
+          burgerButton.removeEventListener('click', this.openMenu);
+        },
+        removeEventListenersFromCloseButton(){
+          const closeButton = this.getCloseButton();
+          if(!closeButton) {
+              return;
+          }
+          closeButton.removeEventListener('click', this.closeMenu);
+          closeButton.removeEventListener('touchstart', this.closeMenu);
         }
       },
       mounted() {
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
-
-        const burgerButton = this.getBurgerButton();
-        const closeButton = this.getCloseButton();
-        burgerButton.addEventListener('touchstart', this.openMenu);
-        burgerButton.addEventListener('click', this.openMenu);
-        closeButton.addEventListener('click', this.closeMenu);
-        closeButton.addEventListener('touchstart', this.closeMenu);
-
+        this.addEventListenersToBurgerMenu();
+        this.addEventListenersToCloseButton();
       },
       created: function() {
         document.addEventListener('click', this.documentClick);
@@ -165,12 +191,8 @@
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
-        const burgerButton = this.getBurgerButton();
-        const closeButton = this.getCloseButton();
-        burgerButton.removeEventListener('touchstart', this.openMenu);
-        burgerButton.removeEventListener('click', this.openMenu);
-        closeButton.removeEventListener('click', this.closeMenu);
-        closeButton.removeEventListener('touchstart', this.closeMenu);
+        this.removeEventListenersFromBurgerMenu();
+        this.removeEventListenersFromCloseButton();
       },
       watch: {
         isOpen: {
@@ -197,10 +219,10 @@
                 this.$refs.bmBurgerButton.style.right = '36px';
                 this.$refs.sideNav.style.left = 'auto';
                 this.$refs.sideNav.style.right = '0px';
-                var burgerButton = this.getBurgerButton();
+                const burgerButton = this.getBurgerButton();
                 burgerButton.style.left = 'auto';
                 burgerButton.style.right = '36px';
-                var burgerMenu = document.querySelector('.bm-menu')
+                const burgerMenu = document.querySelector('.bm-menu');
                 burgerMenu.style.left = 'auto';
                 burgerMenu.style.right = '0px';
                 document.querySelector('.cross-style').style.right='250px';
