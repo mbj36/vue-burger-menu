@@ -8,14 +8,52 @@
     "lint": "vue-cli-service lint",
     "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
   },
+  "files": [
+    "dist/vue-burger-menu.common.js",
+    "dist/vue-burger-menu.umd.js"
+  ],
   "dependencies": {
     "vue": "^2.5.17"
   },
-  "author": {
-    "name": "Mohit Bajoria",
-    "email": "mohitbajo36@gmail.com",
-    "url": "https://mbj36.xyz"
-  },
+  "contributors": [
+    {
+      "name": "Mohit Bajoria",
+      "email": "mohitbajo36@gmail.com",
+      "url": "https://mbj36.xyz"
+    },
+    {
+      "name": "Rohland de Charmoy",
+      "email": "rohland@codeo.co.za"
+    },
+    {
+      "name": "mritunjaygoutam12",
+      "email": "mritunjaygoutam2204@gmail.com"
+    },
+    {
+      "name": "Jacob Fulton",
+      "email": "jacob.fulton@foodsby.com"
+    },
+    {
+      "name": "Mohit kumar Bajoria",
+      "email": "mohitbajo36@gmail.com"
+    },
+    {
+      "name": "Osir Gueye",
+      "email": "osir.gueye@numberly.com"
+    },
+    {
+      "name": "Shivam Luthra",
+      "email": "sluthra145@gmail.com"
+    },
+    {
+      "name": "Shruti",
+      "email": "31311259+Sshruti10@users.noreply.github.com"
+    },
+    {
+      "name": "Davyd McColl",
+      "email": "davydm@gmail.com"
+    }
+  ],
   "keywords": [
     "vuejs",
     "menu",
@@ -24,7 +62,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mbj36/vue-burger-menu.git"
+    "url": "git+https://github.com/codeo-za/vue-burger-menu.git"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",
@@ -41,14 +79,14 @@
     "env": {
       "node": true
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
   },
   "postcss": {
     "plugins": {
@@ -59,9 +97,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "files": [
-    "dist/vue-burger-menu.common.js",
-    "dist/vue-burger-menu.umd.js"
   ]
 }

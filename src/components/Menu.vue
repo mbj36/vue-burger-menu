@@ -4,9 +4,9 @@
             <nav class="bm-item-list">
                 <slot></slot>
             </nav>
-            <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
-                <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
-                </span>
+            <span class="bm-cross-button cross-style" :class="{ hidden: !crossIcon }">
+                <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(-45deg)'}"></span>
+                <span class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: 'rotate(45deg)'}"></span>
             </span>
         </div>
 
@@ -68,7 +68,16 @@
         }
       },
       methods: {
-        openMenu() {
+        openMenu(e) {
+          if (e){
+            e.stopPropagation();
+            e.preventDefault();
+          }
+
+          if (this.isSideBarOpen){
+            return false;
+          }
+
           this.$emit('openMenu');
           this.isSideBarOpen = true;
 
@@ -84,13 +93,23 @@
               ? this.width + 'px'
               : '300px';
           });
+          return false;
         },
 
-        closeMenu() {
+        closeMenu(e) {
+          if (e){
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          if (!this.isSideBarOpen){
+            return false;
+          }
+
           this.$emit('closeMenu');
           this.isSideBarOpen = false;
           document.body.classList.remove('bm-overlay');
           this.$refs.sideNav.style.width = '0px';
+          return false;
         },
 
         closeMenuOnEsc(e) {
@@ -116,13 +135,26 @@
           ) {
             this.closeMenu();
           }
+        },
+        getBurgerButton(){
+          return document.querySelector('.bm-burger-button');
+        },
+        getCloseButton(){
+          return document.querySelector('.bm-cross-button');
         }
       },
-
       mounted() {
         if (!this.disableEsc) {
           document.addEventListener('keyup', this.closeMenuOnEsc);
         }
+
+        const burgerButton = this.getBurgerButton();
+        const closeButton = this.getCloseButton();
+        burgerButton.addEventListener('touchstart', this.openMenu);
+        burgerButton.addEventListener('click', this.openMenu);
+        closeButton.addEventListener('click', this.closeMenu);
+        closeButton.addEventListener('touchstart', this.closeMenu);
+
       },
       created: function() {
         document.addEventListener('click', this.documentClick);
@@ -130,6 +162,12 @@
       destroyed: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
+        const burgerButton = this.getBurgerButton();
+        const closeButton = this.getCloseButton();
+        burgerButton.removeEventListener('touchstart', this.openMenu);
+        burgerButton.removeEventListener('click', this.openMenu);
+        closeButton.removeEventListener('click', this.closeMenu);
+        closeButton.removeEventListener('touchstart', this.closeMenu);
       },
       watch: {
         isOpen: {
@@ -156,10 +194,12 @@
                 this.$refs.bmBurgerButton.style.right = '36px';
                 this.$refs.sideNav.style.left = 'auto';
                 this.$refs.sideNav.style.right = '0px';
-                document.querySelector('.bm-burger-button').style.left = 'auto';
-                document.querySelector('.bm-burger-button').style.right = '36px';
-                document.querySelector('.bm-menu').style.left = 'auto';
-                document.querySelector('.bm-menu').style.right = '0px';
+                var burgerButton = this.getBurgerButton();
+                burgerButton.style.left = 'auto';
+                burgerButton.style.right = '36px';
+                var burgerMenu = document.querySelector('.bm-menu')
+                burgerMenu.style.left = 'auto';
+                burgerMenu.style.right = '0px';
                 document.querySelector('.cross-style').style.right='250px';
               });
             }
