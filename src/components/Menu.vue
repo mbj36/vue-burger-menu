@@ -110,13 +110,22 @@
             element &&
             element !== target &&
             !element.contains(target) &&
-            e.target.className !== 'bm-menu' &&
+            !this.hasClass(target,'bm-menu') &&
             this.isSideBarOpen &&
             !this.disableOutsideClick
           ) {
             this.closeMenu();
           }
-        }
+        },
+        hasClass(element, className) {
+          do {
+            if (element.classList && element.classList.contains(className)) {
+              return true;
+            }
+            element = element.parentNode;
+          } while (element);
+          return false;
+        },
       },
 
       mounted() {
