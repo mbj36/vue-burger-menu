@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="bm-overlay" v-if="isSideBarOpen && !noOverlay" />
         <div ref="sideNav" class="bm-menu">
             <nav class="bm-item-list">
                 <slot></slot>
@@ -13,7 +14,6 @@
         <div ref="bmBurgerButton" class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
             <span class="bm-burger-bars line-style" :style="{top:20 * (index * 2) + '%'}" v-for="(x, index) in 3" :key="index"></span>
         </div>
-
     </div>
 </template>
 
@@ -45,7 +45,8 @@
         },
         noOverlay: {
           type: Boolean,
-          required: false
+          required: false,
+          default: false,
         },
         onStateChange: {
           type: Function,
@@ -72,9 +73,6 @@
           this.$emit('openMenu');
           this.isSideBarOpen = true;
 
-          if (!this.noOverlay) {
-            document.body.classList.add('bm-overlay');
-          }
           if (this.right) {
             this.$refs.sideNav.style.left = 'auto';
             this.$refs.sideNav.style.right = '0px';
@@ -89,7 +87,6 @@
         closeMenu() {
           this.$emit('closeMenu');
           this.isSideBarOpen = false;
-          document.body.classList.remove('bm-overlay');
           this.$refs.sideNav.style.width = '0px';
         },
 
@@ -193,6 +190,7 @@
       left: 36px;
       top: 36px;
       cursor: pointer;
+      z-index: 9998;
     }
     .bm-burger-button.hidden {
       display: none;
@@ -233,10 +231,17 @@
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+      z-index: 9998;
     }
 
     .bm-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       background: rgba(0, 0, 0, 0.3);
+      z-index: 9997;
     }
     .bm-item-list {
       color: #b8b7ad;
