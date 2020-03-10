@@ -1,7 +1,7 @@
 <template>
     <div>
         <div ref="sideNav" class="bm-menu">
-            <nav class="bm-item-list">
+            <nav class="bm-item-list" :style="{'--bmItemListWidth': ['slide', 'reveal'].includes(menuType) ? `${width}px` : 'auto'}">
                 <slot></slot>
             </nav>
             <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
@@ -65,6 +65,11 @@
           type: Boolean,
           required: false,
           default: false
+        },
+        menuType: {
+          type: String,
+          required: false,
+          default: null
         }
       },
       methods: {
@@ -251,6 +256,7 @@
       color: #b8b7ad;
       margin-left: 10%;
       font-size: 20px;
+      width: var(--bmItemListWidth);
     }
     .bm-item-list > * {
       display: flex;
