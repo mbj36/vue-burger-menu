@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
+        <Menu v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu" menuType="slide">
             <slot></slot>
         </Menu>
     </div>
