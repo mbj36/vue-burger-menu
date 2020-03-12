@@ -171,6 +171,14 @@ By default, the menu will close when the Escape key is pressed. To disable this 
 <Slide disableEsc />
 ```
 
+### Close on Navigation
+
+By default, the menu will not close when a link inside the menu is clicked. To disable this behavior, you can pass the `closeOnNavigation` prop. This is useful in cases where you want the menu to close when a navigation link is clicked as this then stops the user having to make an extra click to close the menu.
+
+``` javascript
+<Slide :closeOnNavigation="true" />
+```
+
 ### Overlay
 
 You can turn off the default overlay with `noOverlay`.
