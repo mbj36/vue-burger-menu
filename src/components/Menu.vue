@@ -65,6 +65,11 @@
           type: Boolean,
           required: false,
           default: false
+        },
+        closeOnNavigation: {
+          type: Boolean,
+          required: false,
+          default: false
         }
       },
       methods: {
@@ -113,6 +118,13 @@
             !this.hasClass(target,'bm-menu') &&
             this.isSideBarOpen &&
             !this.disableOutsideClick
+          ) {
+            this.closeMenu();
+          } else if (
+            element &&
+            this.hasClass(target,'bm-menu') &&
+            this.isSideBarOpen &&
+            this.closeOnNavigation
           ) {
             this.closeMenu();
           }
