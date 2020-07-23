@@ -204,7 +204,7 @@
     };
 </script>
 
-<style scoped>
+<style>
     html {
       height: 100%;
     }
