@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bm-overlay" :class="{'open': isSideBarOpen, 'close': !isSideBarOpen}"></div>
+        <div ref="overlay" class="bm-overlay" :class="{'open': isSideBarOpen, 'close': !isSideBarOpen}"></div>
         <div ref="sideNav" class="bm-menu">
             <nav class="bm-item-list">
                 <slot></slot>
@@ -111,15 +111,9 @@
           if (e && e.target) {
             target = e.target;
           }
-
-          if (
-            element &&
-            element !== target &&
-            !element.contains(target) &&
-            !this.hasClass(target,'bm-menu') &&
-            this.isSideBarOpen &&
-            !this.disableOutsideClick
-          ) {
+          
+          if(this.isSideBarOpen && target===this.$refs.overlay && !this.disableOutsideClick) {
+            //Close opened sidebar when click on overlay
             this.closeMenu();
           } else if (
             element &&
