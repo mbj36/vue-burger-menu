@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="this.$attrs" @openMenu="push" @closeMenu="pull">
+        <Menu v-bind="this.$attrs" @open-menu="push" @close-menu="pull">
             <slot></slot>
         </Menu>
     </div>
@@ -21,10 +21,10 @@
       },
       methods: {
         openMenu () {
-            this.$emit("openMenu")
+            this.$emit("open-menu")
         },
         closeMenu () {
-            this.$emit("closeMenu")
+            this.$emit("close-menu")
         },
         push() {
           this.openMenu()

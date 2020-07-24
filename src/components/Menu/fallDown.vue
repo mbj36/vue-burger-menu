@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu ref="sideNav" v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
+        <Menu ref="sideNav" v-bind="this.$attrs" @open-menu="openMenu" @close-menu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
@@ -28,7 +28,7 @@
       },
       methods : {
           openMenu () {
-            this.$emit("openMenu")
+            this.$emit("open-menu")
             let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
             this.$refs.sideNav.$el.querySelector('.bm-menu').style.overflowY = 'hidden';
             this.bodyOldStyle = document.body.getAttribute('style') || '';
@@ -54,7 +54,7 @@
 
           },
           closeMenu () {
-            this.$emit("closeMenu")
+            this.$emit("close-menu")
             document.querySelector('#page-wrap').style.transition =
             'all 0.5s ease 0s';
             document.querySelector('#page-wrap').style.transform = '';

@@ -75,7 +75,7 @@
       },
       methods: {
         openMenu() {
-          this.$emit('openMenu');
+          this.$emit('open-menu');
           this.isSideBarOpen = true;
 
           if (!this.noOverlay) {
@@ -93,7 +93,7 @@
         },
 
         closeMenu() {
-          this.$emit('closeMenu');
+          this.$emit('close-menu');
           this.isSideBarOpen = false;
           document.body.classList.remove('bm-overlay');
           this.$refs.sideNav.style.width = '0px';

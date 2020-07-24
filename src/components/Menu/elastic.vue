@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu v-bind="propsToPass" openMenu="openMenu" @closeMenu="closeMenu">
+        <Menu v-bind="propsToPass" @open-menu="openMenu" @close-menu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
@@ -27,10 +27,10 @@
       },
       methods : {
           openMenu () {
-              this.$emit("openMenu")
+              this.$emit("open-menu")
           },
           closeMenu () {
-              this.$emit("closeMenu")
+              this.$emit("close-menu")
           }
       }
     };
