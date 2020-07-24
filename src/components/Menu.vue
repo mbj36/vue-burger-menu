@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div ref="overlay" class="bm-overlay" :class="{'open': isSideBarOpen, 'close': !isSideBarOpen}"></div>
         <div ref="sideNav" class="bm-menu">
             <nav class="bm-item-list">
                 <slot></slot>
@@ -74,7 +75,7 @@
       },
       methods: {
         openMenu() {
-          this.$emit('openMenu');
+          this.$emit('open-menu');
           this.isSideBarOpen = true;
 
           if (!this.noOverlay) {
@@ -92,7 +93,7 @@
         },
 
         closeMenu() {
-          this.$emit('closeMenu');
+          this.$emit('close-menu');
           this.isSideBarOpen = false;
           document.body.classList.remove('bm-overlay');
           this.$refs.sideNav.style.width = '0px';
@@ -110,15 +111,9 @@
           if (e && e.target) {
             target = e.target;
           }
-
-          if (
-            element &&
-            element !== target &&
-            !element.contains(target) &&
-            !this.hasClass(target,'bm-menu') &&
-            this.isSideBarOpen &&
-            !this.disableOutsideClick
-          ) {
+          
+          if(this.isSideBarOpen && target===this.$refs.overlay && !this.disableOutsideClick) {
+            //Close opened sidebar when click on overlay
             this.closeMenu();
           } else if (
             element &&
@@ -247,7 +242,7 @@
       height: 100%; /* 100% Full-height */
       width: 0; /* 0 width - change this with JavaScript */
       position: fixed; /* Stay in place */
-      z-index: 1000; /* Stay on top */
+      z-index: 1100; /* Stay on top */
       top: 0;
       left: 0;
       background-color: rgb(63, 63, 65); /* Black*/
@@ -273,6 +268,22 @@
       margin-left: 10px;
       font-weight: 700;
       color: white;
+    }
+    .bm-overlay {
+      position: fixed;
+      z-index: 1000;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .bm-overlay.close {
+      opacity: 0;
+      transition: opacity 0.3s ease 0s, transform 0s ease 0.3s;
+      transform: translate3d(100%, 0px, 0px);
+    }
+    .bm-overlay.open {
+      opacity: 1; 
+      transition: opacity 0.3s ease 0s;
     }
 </style>
 

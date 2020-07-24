@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Menu ref="sideNav" v-bind="this.$attrs" @openMenu="openMenu" @closeMenu="closeMenu">
+        <Menu ref="sideNav" v-bind="this.$attrs" @open-menu="openMenu" @close-menu="closeMenu">
             <slot></slot>
         </Menu>
     </div>
@@ -27,7 +27,7 @@
       },
       methods : {
           openMenu () {
-              //this.$emit("openMenu")
+              //this.$emit("open-menu")
               let set= this.$refs.sideNav.$el.querySelector('.bm-menu');
               //console.log(set,"lallan")
               set.style.borderRadius='150% / 70%';
@@ -40,7 +40,7 @@
               set.style.borderBottomLeftRadius='0px';
               }
               set.style.transitionTimingFunction='easy-in';
-              this.$emit("openMenu");
+              this.$emit("open-menu");
 
               setTimeout(function(){
                   set.style.transitionTimingFunction='cubic-bezier(.29, 1.01, 1, -0.68)';
@@ -49,10 +49,10 @@
                   }, 300);
           },
           closeMenu () {
-              //this.$emit("closeMenu")
+              //this.$emit("close-menu")
             let set= this.$refs.sideNav.$el.querySelector('.bm-menu');
             set.style.transitionTimingFunction=null;
-            this.$emit("closeMenu")
+            this.$emit("close-menu")
           }
       }
     };
