@@ -8,7 +8,7 @@ An off-canvas sidebar Vue component with a collection of effects and styles usin
 
 ## Demo & examples
 
-Live demo - https://vue3-burger-menu.netlify.com/
+Live demo - https://vue3-burger-menu.netlify.app/
 
 To build the examples locally, run:
 
@@ -274,8 +274,8 @@ Chrome and Firefox have full support, but Safari and IE have strange behavior fo
 
 &#169; [Mohit Bajoria](https://mbj36.xyz)
 
+Updated to vue3 by Michael Dillard
+
 ## License
 
 [MIT](https://github.com/mbj36/vue3-burger-menu/blob/master/LICENSE)
-
-Like it ? <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20px" /> it
