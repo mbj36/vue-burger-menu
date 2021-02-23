@@ -27,10 +27,10 @@
             </a>
         </component>
         <main id="page-wrap">
-            <img src="https://img.shields.io/npm/dt/vue-burger-menu.svg" /> &emsp;
-            <img src="https://img.shields.io/github/stars/mbj36/vue-burger-menu.svg" />
+            <img src="https://img.shields.io/npm/dt/vue3-burger-menu.svg" /> &emsp;
+            <img src="https://img.shields.io/github/stars/mbj36/vue3-burger-menu.svg" />
             <h1>
-                <a href="https://github.com/mbj36/vue-burger-menu">vue-burger-menu</a> <br/>
+                <a href="https://github.com/mbj36/vue3-burger-menu">vue3-burger-menu</a> <br/>
             </h1>
             <a :class="{ sideButton: true, left: true, active: this.side === 'left' }" @click="changeSide('left')">Left</a>
             <a :class="{sideButton: true, right: true, active: this.side === 'right' }" @click="changeSide('right')">Right</a>

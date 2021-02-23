@@ -148,7 +148,7 @@
       created: function() {
         document.addEventListener('click', this.documentClick);
       },
-      destroyed: function() {
+      unmounted: function() {
         document.removeEventListener('keyup', this.closeMenuOnEsc);
         document.removeEventListener('click', this.documentClick);
       },

@@ -1,48 +1,43 @@
 {
-  "name": "vue-burger-menu",
-  "version": "2.0.5",
+  "name": "vue3-burger-menu",
+  "version": "1.0.0",
   "private": false,
+  "author": {
+    "name": "Michael Dillard",
+    "email": "mkdillard@hotmail.com"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name vue-burger-menu ./src/components/index.js"
+    "build-bundle": "vue-cli-service build --target lib --name vue3-burger-menu ./src/components/index.js"
   },
-  "dependencies": {
-    "vue": "^2.5.17"
-  },
-  "author": {
-    "name": "Mohit Bajoria",
-    "email": "mohitbajo36@gmail.com",
-    "url": "https://mbj36.xyz"
-  },
-  "keywords": [
-    "vuejs",
-    "menu",
-    "hamburger",
-    "sidebar"
+  "main": "./dist/vue3-burger-menu.common.js",
+  "files": [
+    "dist/vue3-burger-menu.common.js",
+    "dist/vue3-burger-menu.umd.js"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mbj36/vue-burger-menu.git"
+  "dependencies": {
+    "vue": "^3.0.0-0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0",
-    "@vue/cli-plugin-eslint": "^3.0.0",
-    "@vue/cli-service": "^3.0.0",
+    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
     "less": "^3.8.1",
-    "less-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.17"
+    "less-loader": "^4.1.0"
   },
-  "main": "./dist/vue-burger-menu.common.js",
-  "license": "MIT",
   "eslintConfig": {
     "root": true,
     "env": {
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/vue3-essential",
       "eslint:recommended"
     ],
     "rules": {},
@@ -60,8 +55,15 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "files": [
-    "dist/vue-burger-menu.common.js",
-    "dist/vue-burger-menu.umd.js"
-  ]
+  "keywords": [
+    "vuejs",
+    "menu",
+    "hamburger",
+    "sidebar"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkdillard/vue3-burger-menu.git"
+  }
 }

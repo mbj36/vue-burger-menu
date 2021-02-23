@@ -1,14 +1,14 @@
-# vue-burger-menu [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+# vue3-burger-menu [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-[![npm](https://img.shields.io/npm/v/vue-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/vue-burger-menu)
+[![npm](https://img.shields.io/npm/v/vue3-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/vue3-burger-menu)
 
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fvue-burger-menu.netlify.com%2F&via=mbj36&text=Checkout%20vue-burger-menu&hashtags=%23vuejs)
+Updated to vue3 from the vue-burger-menu by Mohit Bajoria [`https://github.com/mbj36/vue-burger-menu`](https://github.com/mbj36/vue-burger-menu)
 
 An off-canvas sidebar Vue component with a collection of effects and styles using CSS transitions and SVG path animations.
 
 ## Demo & examples
 
-Live demo - https://vue-burger-menu.netlify.com/
+Live demo - https://vue3-burger-menu.netlify.com/
 
 To build the examples locally, run:
 
@@ -27,11 +27,11 @@ Then open [`localhost:8080`](http://localhost:8080) in a browser
 ## Installation
 
 ```
-npm install vue-burger-menu --save
+npm install vue3-burger-menu --save
 ```
 
 ```
-yarn add vue-burger-menu
+yarn add vue3-burger-menu
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ yarn add vue-burger-menu
 Items should be passed as child elements of the components
 
 ```javascript
-import { Slide } from 'vue-burger-menu'  // import the CSS transitions you wish to use, in this case we are using `Slide`
+import { Slide } from 'vue3-burger-menu'  // import the CSS transitions you wish to use, in this case we are using `Slide`
 
 export default {
     components: {
@@ -276,6 +276,6 @@ Chrome and Firefox have full support, but Safari and IE have strange behavior fo
 
 ## License
 
-[MIT](https://github.com/mbj36/vue-burger-menu/blob/master/LICENSE)
+[MIT](https://github.com/mbj36/vue3-burger-menu/blob/master/LICENSE)
 
 Like it ? <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20px" /> it
