@@ -22,7 +22,7 @@ yarn
 yarn serve
 ```
 
-Then open [`localhost:8080`](http://localhost:8080) in a browser
+Then open [`localhost:8083`](http://localhost:8083) in a browser
 
 ## Installation
 
