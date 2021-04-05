@@ -28,7 +28,7 @@
       methods : {
           openMenu () {
               //this.$emit("openMenu")
-              let set= this.$refs.sideNav.$el.querySelector('.bm-menu');
+              let set= this.sideNav.$el.querySelector('.bm-menu');
               //console.log(set,"lallan")
               set.style.borderRadius='150% / 70%';
               if(this.$attrs.right){
@@ -50,7 +50,7 @@
           },
           closeMenu () {
               //this.$emit("closeMenu")
-            let set= this.$refs.sideNav.$el.querySelector('.bm-menu');
+            let set= this.sideNav.$el.querySelector('.bm-menu');
             set.style.transitionTimingFunction=null;
             this.$emit("closeMenu")
           }

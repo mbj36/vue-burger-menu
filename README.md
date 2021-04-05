@@ -1,6 +1,6 @@
 # vue3-burger-menu [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-[![npm](https://img.shields.io/npm/v/vue3-burger-menu.svg?maxAge=3600)](https://www.npmjs.com/package/vue3-burger-menu)
+[![npm](https://img.shields.io/npm/v/vue3-burger-menu.svg?cacheSeconds=3600)](https://www.npmjs.com/package/vue3-burger-menu)
 
 Updated to vue3 from the vue-burger-menu by Mohit Bajoria [`https://github.com/mbj36/vue-burger-menu`](https://github.com/mbj36/vue-burger-menu)
 

@@ -30,10 +30,10 @@
           openMenu () {
             this.$emit("openMenu")
             let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
-            this.$refs.sideNav.$el.querySelector('.bm-menu').style.overflowY = 'hidden';
+            this.sideNav.$el.querySelector('.bm-menu').style.overflowY = 'hidden';
             this.bodyOldStyle = document.body.getAttribute('style') || '';
             document.body.style.overflowX = 'hidden';
-            this.$refs.sideNav.$el.querySelector('.bm-menu').style.transition='0.5s';
+            this.sideNav.$el.querySelector('.bm-menu').style.transition='0.5s';
 
           if (this.$attrs.right) {
              document.querySelector(
@@ -49,7 +49,7 @@
             'all 0.5s ease 0s';
 
             this.$nextTick(() => {
-              this.$refs.sideNav.$el.querySelector('.bm-menu').style.height='100%';
+              this.sideNav.$el.querySelector('.bm-menu').style.height='100%';
               });
 
           },
@@ -59,12 +59,12 @@
             'all 0.5s ease 0s';
             document.querySelector('#page-wrap').style.transform = '';
             document.body.setAttribute('style', this.bodyOldStyle);
-            this.$refs.sideNav.$el.querySelector('.bm-menu').style.height='0px';
+            this.sideNav.$el.querySelector('.bm-menu').style.height='0px';
 
           }
       },
       mounted () {
-        this.$refs.sideNav.$el.querySelector('.bm-menu').style.height='0px';
+        this.sideNav.$el.querySelector('.bm-menu').style.height='0px';
       }
     };
 </script>
