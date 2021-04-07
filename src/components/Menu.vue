@@ -68,11 +68,11 @@
           default: false
         }
       },
-      setup(props, { emit, root }) {
+      setup(props, { emit }) {
         const bmBurgerButton = ref(null);
         const isSideBarOpen = ref(false);
         const sideNav = ref(null);
-        const { isOpen, right } = toRefs(props);
+        const { isOpen, right, width } = toRefs(props);
 
         const closeMenu = () => {
           emit('closeMenu');
@@ -94,18 +94,17 @@
           if (e && e.target) {
             target = e.target;
           }
-
           if (
-            element &&
-            element !== target &&
-            !element.contains(target) &&
+            element.value &&
+            element.value !== target &&
+            !element.value.contains(target) &&
             !hasClass(target,'bm-menu') &&
-            isSideBarOpen &&
+            isSideBarOpen.value &&
             !props.disableOutsideClick
           ) {
             closeMenu();
           } else if (
-            element &&
+            element.value &&
             hasClass(target,'bm-menu') &&
             isSideBarOpen.value &&
             props.closeOnNavigation
@@ -127,7 +126,6 @@
         const openMenu = () => {
           emit('openMenu');
           isSideBarOpen.value = true;
-
           if (!props.noOverlay) {
             document.body.classList.add('bm-overlay');
           }
@@ -135,9 +133,9 @@
             sideNav.value.style.left = 'auto';
             sideNav.value.style.right = '0px';
           }
-          nextTick(function() {
-            sideNav.value.style.width = root.width
-              ? root.width + 'px'
+          nextTick(() => {
+            sideNav.value.style.width = width.value
+              ? width.value + 'px'
               : '300px';
           });
         };
@@ -152,12 +150,14 @@
         });
 
         onUnmounted(() => {
-          document.removeEventListener('keyup', this.closeMenuOnEsc);
-          document.removeEventListener('click', this.documentClick);
+          if (!props.disableEsc) {
+            document.removeEventListener('keyup', closeMenuOnEsc);
+          }
+          document.removeEventListener('click', documentClick);
         });
 
-        watch(isOpen, (isOpen, prevIsOpen) => {
-          nextTick(() => { //TODO: root not defined in watcher
+        watch(isOpen.value, (isOpen, prevIsOpen) => {
+          nextTick(() => {
             if (!prevIsOpen && isOpen) {
               openMenu();
             }
@@ -167,7 +167,7 @@
           })
         }, {deep: true, immediate: true});
 
-        watch(right, (right, prevRight) => {
+        watch(right.value, (right, prevRight) => {
           if (prevRight) {
             nextTick(() => {
               bmBurgerButton.value.style.left = 'auto';
@@ -183,7 +183,7 @@
           }
           if (right) {
             if (
-              bmBurgerButton.value.hasAttribute('style')
+              bmBurgerButton.value && bmBurgerButton.value.hasAttribute('style')
             ) {
               bmBurgerButton.value.removeAttribute('style');
               sideNav.value.style.right = 'auto';
