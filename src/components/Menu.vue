@@ -1,7 +1,7 @@
 <template>
     <div>
         <div ref="sideNav" class="bm-menu">
-            <nav class="bm-item-list">
+            <nav class="bm-item-list" role="navigation">
                 <slot></slot>
             </nav>
             <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
