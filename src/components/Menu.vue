@@ -4,7 +4,7 @@
             <nav class="bm-item-list">
                 <slot></slot>
             </nav>
-            <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
+            <span ref="bmCloseButton" class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
                 <span v-for="(x, index) in 2" :key="x" class="bm-cross" :style="{ position: 'absolute', width: '3px', height: '14px',transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)'}">
                 </span>
             </span>
@@ -177,11 +177,7 @@
                 this.$refs.bmBurgerButton.style.right = '36px';
                 this.$refs.sideNav.style.left = 'auto';
                 this.$refs.sideNav.style.right = '0px';
-                document.querySelector('.bm-burger-button').style.left = 'auto';
-                document.querySelector('.bm-burger-button').style.right = '36px';
-                document.querySelector('.bm-menu').style.left = 'auto';
-                document.querySelector('.bm-menu').style.right = '0px';
-                document.querySelector('.cross-style').style.right='250px';
+                this.$refs.bmCloseButton.style.right = '250px';
               });
             }
             if (newValue) {
@@ -190,11 +186,7 @@
               ) {
                 this.$refs.bmBurgerButton.removeAttribute('style');
                 this.$refs.sideNav.style.right = 'auto';
-                document
-                  .querySelector('.bm-burger-button')
-                  .removeAttribute('style');
-                document.getElementById('sideNav').style.right = 'auto';
-                document.querySelector('.cross-style').style.right='0px';
+                this.$refs.bmCloseButton.style.right = '0';
               }
             }
           }
